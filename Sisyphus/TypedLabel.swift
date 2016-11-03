@@ -35,10 +35,16 @@ class TypedLabel : SKLabelNode {
 		super.init()
 	}
 
-	init (typingInterval interval : TimeInterval, fontNamed fontName : String?) {
-		self.interval = interval
-
+    init (typingInterval interval : TimeInterval, fontNamed fontName : String?, andText text: String?) {
+		
+        self.interval = interval
 		super.init(fontNamed: fontName)
+        self.text = text
+        fontColor = SKColor.white
+        fontSize = 30
+        horizontalAlignmentMode = .center
+        verticalAlignmentMode = .baseline
+        
 
 //		timer = Timer(timeInterval: interval, repeats: true, block: {
 //			timer in

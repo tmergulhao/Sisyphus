@@ -22,14 +22,13 @@ class GameScene: SKScene {
         
         self.lastUpdateTime = 0
 
-		let typedLabel = TypedLabel(typingInterval: 10000, fontNamed: "Computer Pixel-7")
+        let typedLabel = TypedLabel(typingInterval: 10000, fontNamed: "Computer Pixel-7", andText: "Hello World")
 
-		// typedLabel.fontName = "Computer Pixel-7"
-		typedLabel.text = "Some Computer text"
-		typedLabel.fontColor = SKColor.white
-		typedLabel.fontSize = 30
-		typedLabel.horizontalAlignmentMode = .center
-		typedLabel.verticalAlignmentMode = .baseline
+//      typedLabel.fontName = "Computer Pixel-7"
+//		typedLabel.fontColor = SKColor.white
+//		typedLabel.fontSize = 30
+//		typedLabel.horizontalAlignmentMode = .center
+//		typedLabel.verticalAlignmentMode = .baseline
 		typedLabel.position = CGPoint(x: 100, y: 100)// CGPoint(x: size.width / 2.0, y: size.height / 3.0)
 
 		self.addChild(typedLabel)
