@@ -21,7 +21,21 @@ class GameScene: SKScene {
     override func sceneDidLoad() {
         
         self.lastUpdateTime = 0
-        
+
+		let typedLabel = TypedLabel(typingInterval: 10000, fontNamed: "Computer Pixel-7")
+
+		// typedLabel.fontName = "Computer Pixel-7"
+		typedLabel.text = "Some Computer text"
+		typedLabel.fontColor = SKColor.white
+		typedLabel.fontSize = 30
+		typedLabel.horizontalAlignmentMode = .center
+		typedLabel.verticalAlignmentMode = .baseline
+		typedLabel.position = CGPoint(x: 100, y: 100)// CGPoint(x: size.width / 2.0, y: size.height / 3.0)
+
+		self.addChild(typedLabel)
+
+		typedLabel.type()
+
         // Get label node from scene and store it for use later
         self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
         if let label = self.label {
