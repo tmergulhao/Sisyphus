@@ -13,7 +13,8 @@ class MenuScene: SKScene {
     
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
-    var  instruccion : SKLabelNode?
+    var instruccion : SKLabelNode?
+	var spinnyNode : SKShapeNode?
     
     private var lastUpdateTime : TimeInterval = 0
     private var label : SKLabelNode?
