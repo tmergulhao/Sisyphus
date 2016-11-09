@@ -9,10 +9,6 @@
 /* Begin PBXBuildFile section */
 		496A920B1DCB8EF6001A0843 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496A920A1DCB8EF6001A0843 /* MenuScene.swift */; };
 		496A920F1DCB8F62001A0843 /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 496A920E1DCB8F62001A0843 /* MenuScene.sks */; };
-		7915BE811DD007110094B42E /* DeviceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7915BE721DD007110094B42E /* DeviceItem.m */; };
-		7915BE821DD007110094B42E /* DeviceLister.m in Sources */ = {isa = PBXBuildFile; fileRef = 7915BE741DD007110094B42E /* DeviceLister.m */; };
-		7915BE881DD007110094B42E /* Pref360ControlPref.m in Sources */ = {isa = PBXBuildFile; fileRef = 7915BE801DD007110094B42E /* Pref360ControlPref.m */; };
-		7915BE8B1DD0075F0094B42E /* ControlPrefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 7915BE8A1DD0075F0094B42E /* ControlPrefs.m */; };
 		793C3DC31DC4095100351D34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793C3DC21DC4095100351D34 /* AppDelegate.swift */; };
 		793C3DC51DC4095100351D34 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 793C3DC41DC4095100351D34 /* GameScene.sks */; };
 		793C3DC71DC4095100351D34 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 793C3DC61DC4095100351D34 /* Actions.sks */; };
@@ -22,22 +18,11 @@
 		793C3DD01DC4095100351D34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 793C3DCE1DC4095100351D34 /* Main.storyboard */; };
 		793C3DD81DC4099300351D34 /* Computer Pixel-7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 793C3DD71DC4099300351D34 /* Computer Pixel-7.ttf */; };
 		793C3DDA1DC40F2100351D34 /* TypedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793C3DD91DC40F2100351D34 /* TypedLabel.swift */; };
-		79DFA5831DCFCB770052FF5A /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DFA5821DCFCB770052FF5A /* Controller.swift */; };
-		79DFA5851DCFD1A60052FF5A /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DFA5841DCFD1A60052FF5A /* Mapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		496A920A1DCB8EF6001A0843 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		496A920E1DCB8F62001A0843 /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = MenuScene.sks; path = ../MenuScene.sks; sourceTree = "<group>"; };
-		7915BE711DD007110094B42E /* DeviceItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceItem.h; sourceTree = "<group>"; };
-		7915BE721DD007110094B42E /* DeviceItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceItem.m; sourceTree = "<group>"; };
-		7915BE731DD007110094B42E /* DeviceLister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceLister.h; sourceTree = "<group>"; };
-		7915BE741DD007110094B42E /* DeviceLister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceLister.m; sourceTree = "<group>"; };
-		7915BE7F1DD007110094B42E /* Pref360ControlPref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pref360ControlPref.h; sourceTree = "<group>"; };
-		7915BE801DD007110094B42E /* Pref360ControlPref.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pref360ControlPref.m; sourceTree = "<group>"; };
-		7915BE891DD0075F0094B42E /* ControlPrefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlPrefs.h; sourceTree = "<group>"; };
-		7915BE8A1DD0075F0094B42E /* ControlPrefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlPrefs.m; sourceTree = "<group>"; };
-		7915BE8C1DD014840094B42E /* ControllerType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerType.h; sourceTree = "<group>"; };
 		793C3DBF1DC4095100351D34 /* Sisyphus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sisyphus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		793C3DC21DC4095100351D34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		793C3DC41DC4095100351D34 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -49,9 +34,6 @@
 		793C3DD11DC4095100351D34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		793C3DD71DC4099300351D34 /* Computer Pixel-7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Computer Pixel-7.ttf"; sourceTree = "<group>"; };
 		793C3DD91DC40F2100351D34 /* TypedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedLabel.swift; sourceTree = "<group>"; };
-		79DFA5821DCFCB770052FF5A /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
-		79DFA5841DCFD1A60052FF5A /* Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
-		79F8A56F1DCFB56B009D901F /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +51,6 @@
 			isa = PBXGroup;
 			children = (
 				793C3DC11DC4095100351D34 /* Sisyphus */,
-				79F8A56E1DCFB530009D901F /* XBController */,
 				793C3DC01DC4095100351D34 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -93,31 +74,11 @@
 				793C3DD91DC40F2100351D34 /* TypedLabel.swift */,
 				496A920A1DCB8EF6001A0843 /* MenuScene.swift */,
 				793C3DCA1DC4095100351D34 /* ViewController.swift */,
-				79F8A56F1DCFB56B009D901F /* Bridging-Header.h */,
 				793C3DCC1DC4095100351D34 /* Assets.xcassets */,
 				793C3DCE1DC4095100351D34 /* Main.storyboard */,
 				793C3DD71DC4099300351D34 /* Computer Pixel-7.ttf */,
 				793C3DD11DC4095100351D34 /* Info.plist */,
 			);
-			path = Sisyphus;
-			sourceTree = "<group>";
-		};
-		79F8A56E1DCFB530009D901F /* XBController */ = {
-			isa = PBXGroup;
-			children = (
-				79DFA5821DCFCB770052FF5A /* Controller.swift */,
-				79DFA5841DCFD1A60052FF5A /* Mapper.swift */,
-				7915BE8C1DD014840094B42E /* ControllerType.h */,
-				7915BE891DD0075F0094B42E /* ControlPrefs.h */,
-				7915BE8A1DD0075F0094B42E /* ControlPrefs.m */,
-				7915BE711DD007110094B42E /* DeviceItem.h */,
-				7915BE721DD007110094B42E /* DeviceItem.m */,
-				7915BE731DD007110094B42E /* DeviceLister.h */,
-				7915BE741DD007110094B42E /* DeviceLister.m */,
-				7915BE7F1DD007110094B42E /* Pref360ControlPref.h */,
-				7915BE801DD007110094B42E /* Pref360ControlPref.m */,
-			);
-			name = XBController;
 			path = Sisyphus;
 			sourceTree = "<group>";
 		};
@@ -200,13 +161,7 @@
 				793C3DCB1DC4095100351D34 /* ViewController.swift in Sources */,
 				793C3DDA1DC40F2100351D34 /* TypedLabel.swift in Sources */,
 				496A920B1DCB8EF6001A0843 /* MenuScene.swift in Sources */,
-				79DFA5851DCFD1A60052FF5A /* Mapper.swift in Sources */,
 				793C3DC91DC4095100351D34 /* GameScene.swift in Sources */,
-				79DFA5831DCFCB770052FF5A /* Controller.swift in Sources */,
-				7915BE881DD007110094B42E /* Pref360ControlPref.m in Sources */,
-				7915BE821DD007110094B42E /* DeviceLister.m in Sources */,
-				7915BE8B1DD0075F0094B42E /* ControlPrefs.m in Sources */,
-				7915BE811DD007110094B42E /* DeviceItem.m in Sources */,
 				793C3DC31DC4095100351D34 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,7 +281,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tmergulhao.Sisyphus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Sisyphus/Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -343,7 +298,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tmergulhao.Sisyphus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Sisyphus/Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
