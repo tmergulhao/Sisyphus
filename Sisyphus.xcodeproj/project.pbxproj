@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		496A920B1DCB8EF6001A0843 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496A920A1DCB8EF6001A0843 /* MenuScene.swift */; };
 		496A920F1DCB8F62001A0843 /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 496A920E1DCB8F62001A0843 /* MenuScene.sks */; };
+		7915BE811DD007110094B42E /* DeviceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7915BE721DD007110094B42E /* DeviceItem.m */; };
+		7915BE821DD007110094B42E /* DeviceLister.m in Sources */ = {isa = PBXBuildFile; fileRef = 7915BE741DD007110094B42E /* DeviceLister.m */; };
+		7915BE881DD007110094B42E /* Pref360ControlPref.m in Sources */ = {isa = PBXBuildFile; fileRef = 7915BE801DD007110094B42E /* Pref360ControlPref.m */; };
+		7915BE8B1DD0075F0094B42E /* ControlPrefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 7915BE8A1DD0075F0094B42E /* ControlPrefs.m */; };
 		793C3DC31DC4095100351D34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793C3DC21DC4095100351D34 /* AppDelegate.swift */; };
 		793C3DC51DC4095100351D34 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 793C3DC41DC4095100351D34 /* GameScene.sks */; };
 		793C3DC71DC4095100351D34 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 793C3DC61DC4095100351D34 /* Actions.sks */; };
@@ -18,23 +22,22 @@
 		793C3DD01DC4095100351D34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 793C3DCE1DC4095100351D34 /* Main.storyboard */; };
 		793C3DD81DC4099300351D34 /* Computer Pixel-7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 793C3DD71DC4099300351D34 /* Computer Pixel-7.ttf */; };
 		793C3DDA1DC40F2100351D34 /* TypedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793C3DD91DC40F2100351D34 /* TypedLabel.swift */; };
-		79F8A5AC1DCFB766009D901F /* BindingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F8A5951DCFB766009D901F /* BindingTableView.m */; };
-		79F8A5AD1DCFB766009D901F /* ControlPrefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F8A5971DCFB766009D901F /* ControlPrefs.m */; };
-		79F8A5AE1DCFB766009D901F /* DeviceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F8A5991DCFB766009D901F /* DeviceItem.m */; };
-		79F8A5AF1DCFB766009D901F /* DeviceLister.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F8A59B1DCFB766009D901F /* DeviceLister.m */; };
-		79F8A5B01DCFB766009D901F /* MyAnalogStick.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F8A59D1DCFB766009D901F /* MyAnalogStick.m */; };
-		79F8A5B11DCFB766009D901F /* MyBatteryMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F8A59F1DCFB766009D901F /* MyBatteryMonitor.m */; };
-		79F8A5B21DCFB766009D901F /* MyDeadZoneViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F8A5A11DCFB766009D901F /* MyDeadZoneViewer.m */; };
-		79F8A5B31DCFB766009D901F /* MyTrigger.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F8A5A31DCFB766009D901F /* MyTrigger.m */; };
-		79F8A5B41DCFB766009D901F /* MyWhole360Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F8A5A51DCFB766009D901F /* MyWhole360Controller.m */; };
-		79F8A5B51DCFB766009D901F /* MyWhole360ControllerMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F8A5A71DCFB766009D901F /* MyWhole360ControllerMapper.m */; };
-		79F8A5B61DCFB766009D901F /* Pref360ControlPref.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F8A5A91DCFB766009D901F /* Pref360ControlPref.m */; };
-		79F8A5B71DCFB766009D901F /* Pref360StyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F8A5AB1DCFB766009D901F /* Pref360StyleKit.m */; };
+		79DFA5831DCFCB770052FF5A /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DFA5821DCFCB770052FF5A /* Controller.swift */; };
+		79DFA5851DCFD1A60052FF5A /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DFA5841DCFD1A60052FF5A /* Mapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		496A920A1DCB8EF6001A0843 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		496A920E1DCB8F62001A0843 /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = MenuScene.sks; path = ../MenuScene.sks; sourceTree = "<group>"; };
+		7915BE711DD007110094B42E /* DeviceItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceItem.h; sourceTree = "<group>"; };
+		7915BE721DD007110094B42E /* DeviceItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceItem.m; sourceTree = "<group>"; };
+		7915BE731DD007110094B42E /* DeviceLister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceLister.h; sourceTree = "<group>"; };
+		7915BE741DD007110094B42E /* DeviceLister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceLister.m; sourceTree = "<group>"; };
+		7915BE7F1DD007110094B42E /* Pref360ControlPref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pref360ControlPref.h; sourceTree = "<group>"; };
+		7915BE801DD007110094B42E /* Pref360ControlPref.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pref360ControlPref.m; sourceTree = "<group>"; };
+		7915BE891DD0075F0094B42E /* ControlPrefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlPrefs.h; sourceTree = "<group>"; };
+		7915BE8A1DD0075F0094B42E /* ControlPrefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlPrefs.m; sourceTree = "<group>"; };
+		7915BE8C1DD014840094B42E /* ControllerType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerType.h; sourceTree = "<group>"; };
 		793C3DBF1DC4095100351D34 /* Sisyphus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sisyphus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		793C3DC21DC4095100351D34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		793C3DC41DC4095100351D34 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -46,31 +49,9 @@
 		793C3DD11DC4095100351D34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		793C3DD71DC4099300351D34 /* Computer Pixel-7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Computer Pixel-7.ttf"; sourceTree = "<group>"; };
 		793C3DD91DC40F2100351D34 /* TypedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedLabel.swift; sourceTree = "<group>"; };
+		79DFA5821DCFCB770052FF5A /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		79DFA5841DCFD1A60052FF5A /* Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
 		79F8A56F1DCFB56B009D901F /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
-		79F8A5941DCFB766009D901F /* BindingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BindingTableView.h; sourceTree = "<group>"; };
-		79F8A5951DCFB766009D901F /* BindingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BindingTableView.m; sourceTree = "<group>"; };
-		79F8A5961DCFB766009D901F /* ControlPrefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlPrefs.h; sourceTree = "<group>"; };
-		79F8A5971DCFB766009D901F /* ControlPrefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlPrefs.m; sourceTree = "<group>"; };
-		79F8A5981DCFB766009D901F /* DeviceItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceItem.h; sourceTree = "<group>"; };
-		79F8A5991DCFB766009D901F /* DeviceItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceItem.m; sourceTree = "<group>"; };
-		79F8A59A1DCFB766009D901F /* DeviceLister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceLister.h; sourceTree = "<group>"; };
-		79F8A59B1DCFB766009D901F /* DeviceLister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceLister.m; sourceTree = "<group>"; };
-		79F8A59C1DCFB766009D901F /* MyAnalogStick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnalogStick.h; sourceTree = "<group>"; };
-		79F8A59D1DCFB766009D901F /* MyAnalogStick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnalogStick.m; sourceTree = "<group>"; };
-		79F8A59E1DCFB766009D901F /* MyBatteryMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBatteryMonitor.h; sourceTree = "<group>"; };
-		79F8A59F1DCFB766009D901F /* MyBatteryMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBatteryMonitor.m; sourceTree = "<group>"; };
-		79F8A5A01DCFB766009D901F /* MyDeadZoneViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDeadZoneViewer.h; sourceTree = "<group>"; };
-		79F8A5A11DCFB766009D901F /* MyDeadZoneViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDeadZoneViewer.m; sourceTree = "<group>"; };
-		79F8A5A21DCFB766009D901F /* MyTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTrigger.h; sourceTree = "<group>"; };
-		79F8A5A31DCFB766009D901F /* MyTrigger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTrigger.m; sourceTree = "<group>"; };
-		79F8A5A41DCFB766009D901F /* MyWhole360Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWhole360Controller.h; sourceTree = "<group>"; };
-		79F8A5A51DCFB766009D901F /* MyWhole360Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWhole360Controller.m; sourceTree = "<group>"; };
-		79F8A5A61DCFB766009D901F /* MyWhole360ControllerMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWhole360ControllerMapper.h; sourceTree = "<group>"; };
-		79F8A5A71DCFB766009D901F /* MyWhole360ControllerMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWhole360ControllerMapper.m; sourceTree = "<group>"; };
-		79F8A5A81DCFB766009D901F /* Pref360ControlPref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pref360ControlPref.h; sourceTree = "<group>"; };
-		79F8A5A91DCFB766009D901F /* Pref360ControlPref.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pref360ControlPref.m; sourceTree = "<group>"; };
-		79F8A5AA1DCFB766009D901F /* Pref360StyleKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pref360StyleKit.h; sourceTree = "<group>"; };
-		79F8A5AB1DCFB766009D901F /* Pref360StyleKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pref360StyleKit.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,30 +105,17 @@
 		79F8A56E1DCFB530009D901F /* XBController */ = {
 			isa = PBXGroup;
 			children = (
-				79F8A5941DCFB766009D901F /* BindingTableView.h */,
-				79F8A5951DCFB766009D901F /* BindingTableView.m */,
-				79F8A5961DCFB766009D901F /* ControlPrefs.h */,
-				79F8A5971DCFB766009D901F /* ControlPrefs.m */,
-				79F8A5981DCFB766009D901F /* DeviceItem.h */,
-				79F8A5991DCFB766009D901F /* DeviceItem.m */,
-				79F8A59A1DCFB766009D901F /* DeviceLister.h */,
-				79F8A59B1DCFB766009D901F /* DeviceLister.m */,
-				79F8A59C1DCFB766009D901F /* MyAnalogStick.h */,
-				79F8A59D1DCFB766009D901F /* MyAnalogStick.m */,
-				79F8A59E1DCFB766009D901F /* MyBatteryMonitor.h */,
-				79F8A59F1DCFB766009D901F /* MyBatteryMonitor.m */,
-				79F8A5A01DCFB766009D901F /* MyDeadZoneViewer.h */,
-				79F8A5A11DCFB766009D901F /* MyDeadZoneViewer.m */,
-				79F8A5A21DCFB766009D901F /* MyTrigger.h */,
-				79F8A5A31DCFB766009D901F /* MyTrigger.m */,
-				79F8A5A41DCFB766009D901F /* MyWhole360Controller.h */,
-				79F8A5A51DCFB766009D901F /* MyWhole360Controller.m */,
-				79F8A5A61DCFB766009D901F /* MyWhole360ControllerMapper.h */,
-				79F8A5A71DCFB766009D901F /* MyWhole360ControllerMapper.m */,
-				79F8A5A81DCFB766009D901F /* Pref360ControlPref.h */,
-				79F8A5A91DCFB766009D901F /* Pref360ControlPref.m */,
-				79F8A5AA1DCFB766009D901F /* Pref360StyleKit.h */,
-				79F8A5AB1DCFB766009D901F /* Pref360StyleKit.m */,
+				79DFA5821DCFCB770052FF5A /* Controller.swift */,
+				79DFA5841DCFD1A60052FF5A /* Mapper.swift */,
+				7915BE8C1DD014840094B42E /* ControllerType.h */,
+				7915BE891DD0075F0094B42E /* ControlPrefs.h */,
+				7915BE8A1DD0075F0094B42E /* ControlPrefs.m */,
+				7915BE711DD007110094B42E /* DeviceItem.h */,
+				7915BE721DD007110094B42E /* DeviceItem.m */,
+				7915BE731DD007110094B42E /* DeviceLister.h */,
+				7915BE741DD007110094B42E /* DeviceLister.m */,
+				7915BE7F1DD007110094B42E /* Pref360ControlPref.h */,
+				7915BE801DD007110094B42E /* Pref360ControlPref.m */,
 			);
 			name = XBController;
 			path = Sisyphus;
@@ -229,23 +197,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79F8A5B01DCFB766009D901F /* MyAnalogStick.m in Sources */,
 				793C3DCB1DC4095100351D34 /* ViewController.swift in Sources */,
-				79F8A5B71DCFB766009D901F /* Pref360StyleKit.m in Sources */,
-				79F8A5AC1DCFB766009D901F /* BindingTableView.m in Sources */,
-				79F8A5B61DCFB766009D901F /* Pref360ControlPref.m in Sources */,
-				79F8A5B51DCFB766009D901F /* MyWhole360ControllerMapper.m in Sources */,
-				79F8A5B21DCFB766009D901F /* MyDeadZoneViewer.m in Sources */,
 				793C3DDA1DC40F2100351D34 /* TypedLabel.swift in Sources */,
-				79F8A5B31DCFB766009D901F /* MyTrigger.m in Sources */,
 				496A920B1DCB8EF6001A0843 /* MenuScene.swift in Sources */,
+				79DFA5851DCFD1A60052FF5A /* Mapper.swift in Sources */,
 				793C3DC91DC4095100351D34 /* GameScene.swift in Sources */,
+				79DFA5831DCFCB770052FF5A /* Controller.swift in Sources */,
+				7915BE881DD007110094B42E /* Pref360ControlPref.m in Sources */,
+				7915BE821DD007110094B42E /* DeviceLister.m in Sources */,
+				7915BE8B1DD0075F0094B42E /* ControlPrefs.m in Sources */,
+				7915BE811DD007110094B42E /* DeviceItem.m in Sources */,
 				793C3DC31DC4095100351D34 /* AppDelegate.swift in Sources */,
-				79F8A5B41DCFB766009D901F /* MyWhole360Controller.m in Sources */,
-				79F8A5AF1DCFB766009D901F /* DeviceLister.m in Sources */,
-				79F8A5AE1DCFB766009D901F /* DeviceItem.m in Sources */,
-				79F8A5B11DCFB766009D901F /* MyBatteryMonitor.m in Sources */,
-				79F8A5AD1DCFB766009D901F /* ControlPrefs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

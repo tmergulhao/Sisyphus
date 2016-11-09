@@ -26,7 +26,6 @@
 #include <IOKit/hid/IOHIDLib.h>
 #include <IOKit/hid/IOHIDKeys.h>
 #include <ForceFeedback/ForceFeedback.h>
-
 #import "Pref360ControlPref.h"
 
 @interface DeviceItem : NSObject

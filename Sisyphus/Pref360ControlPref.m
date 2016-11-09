@@ -26,26 +26,10 @@
 #import "DeviceItem.h"
 #import "ControlPrefs.h"
 #import "DeviceLister.h"
-#import "MyWhole360Controller.h"
-#import "MyWhole360ControllerMapper.h"
-#import "MyTrigger.h"
-#import "MyDeadZoneViewer.h"
-#import "MyBatteryMonitor.h"
-#import "MyAnalogStick.h"
+
+#import "Sisyphus-Swift.h"
 
 #define NO_ITEMS @"No devices found"
-
-@interface NSLayoutConstraint (Description)
-
-@end
-
-@implementation NSLayoutConstraint (Description)
-
--(NSString *)description {
-    return [NSString stringWithFormat:@"id: %@, constant: %f", self.identifier, self.constant];
-}
-
-@end
 
 // Passes a C callback back to the Objective C class
 static void CallbackFunction(void *target,IOReturn result,void *refCon,void *sender)
@@ -69,6 +53,7 @@ static void callbackHandleDevice(void *param,io_iterator_t iterator)
 }
 
 @interface Pref360ControlPref ()
+@property (strong) Controller *wholeController;
 @property (strong) NSMutableArray *deviceArray;
 @end
 
@@ -97,7 +82,7 @@ static void callbackHandleDevice(void *param,io_iterator_t iterator)
 
 
 -(void)awakeFromNib {
-    [_aboutPopover setAppearance:[NSAppearance appearanceNamed:NSAppearanceNameAqua]];
+    [_aboutPopover setAppearance: [NSAppearance appearanceNamed:NSAppearanceNameAqua]];
     [_rumbleOptions removeAllItems];
     [_rumbleOptions addItemsWithTitles:@[@"Default", @"None"]];
 }
@@ -185,28 +170,22 @@ static void callbackHandleDevice(void *param,io_iterator_t iterator)
 
     switch(index) {
         case 0:
-            [_wholeController setLeftStickXPos:value];
-            [_leftStickAnalog setPositionX:value];
+			[_wholeController setLpositionX:value];
             break;
-
         case 1:
-            [_wholeController setLeftStickYPos:value];
-            [_leftStickAnalog setPositionY:value];
+			[_wholeController setLpositionY:value];
             break;
-
         case 2:
-            [_wholeController setRightStickXPos:value];
-            [_rightStickAnalog setPositionX:value];
+            [_wholeController setRpositionX:value];
             break;
 
         case 3:
-            [_wholeController setRightStickYPos:value];
-            [_rightStickAnalog setPositionY:value];
+            [_wholeController setRpositionY:value];
             break;
 
         case 4:
             if (tabIndex == 0) { // Controller Test
-                [_leftTrigger setVal:value];
+				[_wholeController setLeftTrigger:value];
                 largeMotor=value;
                 [self testMotorsLarge:largeMotor small:smallMotor];
             }
@@ -214,7 +193,7 @@ static void callbackHandleDevice(void *param,io_iterator_t iterator)
 
         case 5:
             if (tabIndex == 0) {
-                [_rightTrigger setVal:value];
+				[_wholeController setRightTrigger:value];
                 smallMotor=value;
                 [self testMotorsLarge:largeMotor small:smallMotor];
             }
@@ -234,74 +213,64 @@ static void callbackHandleDevice(void *param,io_iterator_t iterator)
     if (tabIndex == 0) { // Controller Test
         switch (index) {
             case 0:
-                [_wholeController setAPressed:b];
+                [_wholeController setA:b];
                 break;
-
             case 1:
-                [_wholeController setBPressed:b];
+				[_wholeController setB:b];
                 break;
-
             case 2:
-                [_wholeController setXPressed:b];
+                [_wholeController setX:b];
                 break;
-
             case 3:
-                [_wholeController setYPressed:b];
+                [_wholeController setY:b];
                 break;
 
             case 4:
-                [_wholeController setLbPressed:b];
+                [_wholeController setLb:b];
                 break;
 
             case 5:
-                [_wholeController setRbPressed:b];
+                [_wholeController setRb:b];
                 break;
 
             case 6:
-                [_wholeController setLeftStickPressed:b];
+                [_wholeController setLpressed:b];
                 break;
 
             case 7:
-                [_wholeController setRightStickPressed:b];
+                [_wholeController setRpressed:b];
                 break;
 
             case 8:
-                [_wholeController setStartPressed:b];
+                [_wholeController setStart:b];
                 break;
 
             case 9:
-                [_wholeController setBackPressed:b];
+                [_wholeController setBack:b];
                 break;
 
             case 10:
-                [_wholeController setHomePressed:b];
+                [_wholeController setHome:b];
                 break;
 
             case 11:
-                [_wholeController setUpPressed:b];
+                [_wholeController setUp:b];
                 break;
 
             case 12:
-                [_wholeController setDownPressed:b];
+                [_wholeController setDown:b];
                 break;
 
             case 13:
-                [_wholeController setLeftPressed:b];
+                [_wholeController setLeft:b];
                 break;
 
             case 14:
-                [_wholeController setRightPressed:b];
+                [_wholeController setRight:b];
                 break;
 
             default:
                 break;
-        }
-    }
-    else if (tabIndex == 1) { // Tweaks
-        if ([_wholeControllerMapper isMapping]) {
-            if (b == YES) {
-                [_wholeControllerMapper buttonPressedAtIndex:index];
-            }
         }
     }
 }
@@ -338,65 +307,10 @@ static void callbackHandleDevice(void *param,io_iterator_t iterator)
     }
 }
 
-// Enable input components
-- (void)inputEnable:(BOOL)enable
-{
-    [_leftStickDeadzone setEnabled:enable];
-    [_leftStickDeadzoneAlt setEnabled:enable];
-    [_leftStickInvertX setEnabled:enable];
-    [_leftStickInvertXAlt setEnabled:enable];
-    [_leftStickInvertY setEnabled:enable];
-    [_leftStickInvertYAlt setEnabled:enable];
-    [_leftLinked setEnabled:enable];
-    [_leftLinkedAlt setEnabled:enable];
-    [_leftStickNormalize setEnabled:enable];
-    [_rightStickDeadzone setEnabled:enable];
-    [_rightStickDeadzoneAlt setEnabled:enable];
-    [_rightStickInvertX setEnabled:enable];
-    [_rightStickInvertXAlt setEnabled:enable];
-    [_rightStickInvertY setEnabled:enable];
-    [_rightStickInvertYAlt setEnabled:enable];
-    [_rightLinked setEnabled:enable];
-    [_rightLinkedAlt setEnabled:enable];
-    [_rightStickNormalize setEnabled:enable];
-    [_rumbleOptions setEnabled:enable];
-    [_swapSticks setEnabled:enable];
-    [_pretend360Button setEnabled:enable];
-}
-
 // Reset GUI components
 - (void)resetDisplay
 {
-    [_leftTrigger setVal:0];
-    [_rightTrigger setVal:0];
     [_wholeController reset];
-    [_leftDeadZone setVal:0];
-    [_leftStickAnalog setDeadzone:0];
-    [_leftDeadZone setLinked:NO];
-    [_leftStickAnalog setLinked:NO];
-    [_rightDeadZone setVal:0];
-    [_rightStickAnalog setDeadzone:0];
-    [_rightDeadZone setLinked:NO];
-    [_rightStickAnalog setLinked:NO];
-    // Reset inputs
-    [_leftStickDeadzone setIntValue:0];
-    [_leftStickDeadzoneAlt setIntValue:0];
-    [_leftStickInvertX setState:NSOffState];
-    [_leftStickInvertXAlt setState:NSOffState];
-    [_leftStickInvertY setState:NSOffState];
-    [_leftStickInvertYAlt setState:NSOffState];
-    [_rightStickDeadzone setIntValue:0];
-    [_rightStickDeadzoneAlt setIntValue:0];
-    [_rightStickInvertX setState:NSOffState];
-    [_rightStickInvertXAlt setState:NSOffState];
-    [_rightStickInvertY setState:NSOffState];
-    [_rightStickInvertYAlt setState:NSOffState];
-    [_swapSticks setState:NSOffState];
-    // Disable inputs
-    [self inputEnable:NO];
-    [_powerOff setHidden:YES];
-    // Hide battery status
-    [_batteryStatus setHidden:YES];
 }
 
 // Stop using the HID device
@@ -572,67 +486,26 @@ static void callbackHandleDevice(void *param,io_iterator_t iterator)
             CFBooleanRef boolValue;
             CFNumberRef intValue;
 
-            if(CFDictionaryGetValueIfPresent(dict,CFSTR("InvertLeftX"),(void*)&boolValue)) {
-                [_leftStickInvertX setState:CFBooleanGetValue(boolValue)?NSOnState:NSOffState];
-                [_leftStickInvertXAlt setState:CFBooleanGetValue(boolValue)?NSOnState:NSOffState];
-            } else NSLog(@"No value for InvertLeftX\n");
-            if(CFDictionaryGetValueIfPresent(dict,CFSTR("InvertLeftY"),(void*)&boolValue)) {
-                [_leftStickInvertY setState:CFBooleanGetValue(boolValue)?NSOnState:NSOffState];
-                [_leftStickInvertYAlt setState:CFBooleanGetValue(boolValue)?NSOnState:NSOffState];
-            } else NSLog(@"No value for InvertLeftY\n");
-            if(CFDictionaryGetValueIfPresent(dict,CFSTR("RelativeLeft"),(void*)&boolValue)) {
-                BOOL enable=CFBooleanGetValue(boolValue);
-                [_leftLinked setState:enable?NSOnState:NSOffState];
-                [_leftLinkedAlt setState:enable?NSOnState:NSOffState];
-                [_leftDeadZone setLinked:enable];
-                [_leftStickAnalog setLinked:enable];
-            } else NSLog(@"No value for RelativeLeft\n");
             if(CFDictionaryGetValueIfPresent(dict,CFSTR("DeadOffLeft"),(void*)&boolValue)) {
                 BOOL enable=CFBooleanGetValue(boolValue);
-                [_leftStickNormalize setState:enable];
-                [_wholeController setLeftNormalized:enable];
-                [_leftStickAnalog setNormalized:enable];
+                [_wholeController setLnormalized:enable];
             } else NSLog(@"No value for DeadOffLeft\n");
             if(CFDictionaryGetValueIfPresent(dict,CFSTR("DeadzoneLeft"),(void*)&intValue)) {
                 UInt16 i;
-
                 CFNumberGetValue(intValue,kCFNumberShortType,&i);
-                [_leftStickDeadzone setIntValue:i];
-                [_leftStickDeadzoneAlt setIntValue:i];
-                [_leftDeadZone setVal:i];
-                [_wholeController setLeftStickDeadzone:i];
-                [_leftStickAnalog setDeadzone:i];
+                [_wholeController setLdeadZone:i];
             } else NSLog(@"No value for DeadzoneLeft\n");
-            if(CFDictionaryGetValueIfPresent(dict,CFSTR("InvertRightX"),(void*)&boolValue)) {
-                [_rightStickInvertX setState:CFBooleanGetValue(boolValue)?NSOnState:NSOffState];
-                [_rightStickInvertXAlt setState:CFBooleanGetValue(boolValue)?NSOnState:NSOffState];
-            } else NSLog(@"No value for InvertRightX\n");
-            if(CFDictionaryGetValueIfPresent(dict,CFSTR("InvertRightY"),(void*)&boolValue)) {
-                [_rightStickInvertY setState:CFBooleanGetValue(boolValue)?NSOnState:NSOffState];
-                [_rightStickInvertYAlt setState:CFBooleanGetValue(boolValue)?NSOnState:NSOffState];
-            } else NSLog(@"No value for InvertRightY\n");
             if(CFDictionaryGetValueIfPresent(dict,CFSTR("RelativeRight"),(void*)&boolValue)) {
-                BOOL enable=CFBooleanGetValue(boolValue);
-                [_rightLinked setState:enable?NSOnState:NSOffState];
-                [_rightLinkedAlt setState:enable?NSOnState:NSOffState];
-                [_rightDeadZone setLinked:enable];
-                [_wholeController setRightStickDeadzone:i];
-                [_rightStickAnalog setLinked:enable];
+                [_wholeController setRdeadZone:i];
             } else NSLog(@"No value for RelativeRight\n");
             if(CFDictionaryGetValueIfPresent(dict,CFSTR("DeadOffRight"),(void*)&boolValue)) {
                 BOOL enable=CFBooleanGetValue(boolValue);
-                [_rightStickNormalize setState:enable];
-                [_wholeController setRightNormalized:enable];
-                [_rightStickAnalog setNormalized:enable];
+                [_wholeController setRnormalized:enable];
             } else NSLog(@"No value for DeadOffRight\n");
             if(CFDictionaryGetValueIfPresent(dict,CFSTR("DeadzoneRight"),(void*)&intValue)) {
                 UInt16 i;
-
                 CFNumberGetValue(intValue,kCFNumberShortType,&i);
-                [_rightStickDeadzone setIntValue:i];
-                [_rightStickDeadzoneAlt setIntValue:i];
-                [_rightDeadZone setVal:i];
-                [_rightStickAnalog setDeadzone:i];
+                [_wholeController setRdeadZone:i];
             } else NSLog(@"No value for DeadzoneRight\n");
 
             if(CFDictionaryGetValueIfPresent(dict,CFSTR("ControllerType"),(void*)&intValue)) {
@@ -641,84 +514,8 @@ static void callbackHandleDevice(void *param,io_iterator_t iterator)
                 if (controllerTypePrefs != controllerType)
                     NSLog(@"ControllerType from prefs was %d, expected %d", (int)controllerTypePrefs, (int)controllerType);
             } else NSLog(@"No value for ControllerType\n");
-            if(CFDictionaryGetValueIfPresent(dict,CFSTR("RumbleType"),(void*)&intValue)) {
-                NSNumber *num = (__bridge NSNumber *)intValue;
-                [_rumbleOptions selectItemAtIndex:[num integerValue]];
-//                [_rumbleOptions setState:[num integerValue]];
-            } else NSLog(@"No value for RumbleType\n");
-
-            if(CFDictionaryGetValueIfPresent(dict,CFSTR("BindingUp"),(void*)&intValue)) {
-                NSNumber *num = (__bridge NSNumber *)intValue;
-                [MyWhole360ControllerMapper mapping][0] = [num intValue];
-            } else NSLog(@"No value for BindingUp\n");
-            if(CFDictionaryGetValueIfPresent(dict,CFSTR("BindingDown"),(void*)&intValue)) {
-                NSNumber *num = (__bridge NSNumber *)intValue;
-                [MyWhole360ControllerMapper mapping][1] = [num intValue];
-            } else NSLog(@"No value for BindingDown\n");
-            if(CFDictionaryGetValueIfPresent(dict,CFSTR("BindingLeft"),(void*)&intValue)) {
-                NSNumber *num = (__bridge NSNumber *)intValue;
-                [MyWhole360ControllerMapper mapping][2] = [num intValue];
-            } else NSLog(@"No value for BindingLeft\n");
-            if(CFDictionaryGetValueIfPresent(dict,CFSTR("BindingRight"),(void*)&intValue)) {
-                NSNumber *num = (__bridge NSNumber *)intValue;
-                [MyWhole360ControllerMapper mapping][3] = [num intValue];
-            } else NSLog(@"No value for BindingRight\n");
-            if(CFDictionaryGetValueIfPresent(dict,CFSTR("BindingStart"),(void*)&intValue)) {
-                NSNumber *num = (__bridge NSNumber *)intValue;
-                [MyWhole360ControllerMapper mapping][4] = [num intValue];
-            } else NSLog(@"No value for BindingStart\n");
-            if(CFDictionaryGetValueIfPresent(dict,CFSTR("BindingBack"),(void*)&intValue)) {
-                NSNumber *num = (__bridge NSNumber *)intValue;
-                [MyWhole360ControllerMapper mapping][5] = [num intValue];
-            } else NSLog(@"No value for BindingBack\n");
-            if(CFDictionaryGetValueIfPresent(dict,CFSTR("BindingLSC"),(void*)&intValue)) {
-                NSNumber *num = (__bridge NSNumber *)intValue;
-                [MyWhole360ControllerMapper mapping][6] = [num intValue];
-            } else NSLog(@"No value for BindingLSC\n");
-            if(CFDictionaryGetValueIfPresent(dict,CFSTR("BindingRSC"),(void*)&intValue)) {
-                NSNumber *num = (__bridge NSNumber *)intValue;
-                [MyWhole360ControllerMapper mapping][7] = [num intValue];
-            } else NSLog(@"No value for BindingRSC\n");
-            if(CFDictionaryGetValueIfPresent(dict,CFSTR("BindingLB"),(void*)&intValue)) {
-                NSNumber *num = (__bridge NSNumber *)intValue;
-                [MyWhole360ControllerMapper mapping][8] = [num intValue];
-            } else NSLog(@"No value for BindingLB\n");
-            if(CFDictionaryGetValueIfPresent(dict,CFSTR("BindingRB"),(void*)&intValue)) {
-                NSNumber *num = (__bridge NSNumber *)intValue;
-                [MyWhole360ControllerMapper mapping][9] = [num intValue];
-            } else NSLog(@"No value for BindingRB\n");
-            if(CFDictionaryGetValueIfPresent(dict,CFSTR("BindingGuide"),(void*)&intValue)) {
-                NSNumber *num = (__bridge NSNumber *)intValue;
-                [MyWhole360ControllerMapper mapping][10] = [num intValue];
-            } else NSLog(@"No value for BindingGuide\n");
-            if(CFDictionaryGetValueIfPresent(dict,CFSTR("BindingA"),(void*)&intValue)) {
-                NSNumber *num = (__bridge NSNumber *)intValue;
-                [MyWhole360ControllerMapper mapping][11] = [num intValue];
-            } else NSLog(@"No value for BindingA\n");
-            if(CFDictionaryGetValueIfPresent(dict,CFSTR("BindingB"),(void*)&intValue)) {
-                NSNumber *num = (__bridge NSNumber *)intValue;
-                [MyWhole360ControllerMapper mapping][12] = [num intValue];
-            } else NSLog(@"No value for BindingB\n");
-            if(CFDictionaryGetValueIfPresent(dict,CFSTR("BindingX"),(void*)&intValue)) {
-                NSNumber *num = (__bridge NSNumber *)intValue;
-                [MyWhole360ControllerMapper mapping][13] = [num intValue];
-            } else NSLog(@"No value for BindingX\n");
-            if(CFDictionaryGetValueIfPresent(dict,CFSTR("BindingY"),(void*)&intValue)) {
-                NSNumber *num = (__bridge NSNumber *)intValue;
-                [MyWhole360ControllerMapper mapping][14] = [num intValue];
-            } else NSLog(@"No value for BindingY\n");
-
-            if(CFDictionaryGetValueIfPresent(dict,CFSTR("SwapSticks"),(void*)&boolValue)) {
-                [_swapSticks setState:CFBooleanGetValue(boolValue)?NSOnState:NSOffState];
-            } else NSLog(@"No value for SwapSticks\n");
-
-            if(CFDictionaryGetValueIfPresent(dict,CFSTR("Pretend360"),(void*)&boolValue)) {
-                [_pretend360Button setState:CFBooleanGetValue(boolValue)?NSOnState:NSOffState];
-            } else NSLog(@"No value for Pretend360");
         } else NSLog(@"No settings found\n");
     }
-    // Enable GUI components
-    [self inputEnable:YES];
     // Set device capabilities
     // Set FF motor control
     [self testMotorsInit];
@@ -744,13 +541,7 @@ static void callbackHandleDevice(void *param,io_iterator_t iterator)
             }
             [_powerOff setHidden:NO];
         }
-        if ( batteryLevel >= 0) {
-            [_batteryStatus setBars:batteryLevel];
-            [_batteryStatus setPercentage:batteryPercentage];
-            [_batteryStatus setHidden:NO];
-        } else {
-            [_batteryStatus setHidden:YES];
-        }
+        [_wholeController setBatteryPercentage:batteryPercentage];
     }
 
     [_mappingTable reloadData];
@@ -913,34 +704,8 @@ static void callbackHandleDevice(void *param,io_iterator_t iterator)
 - (IBAction)changeSetting:(id)sender
 {
     // Send normalize to joysticks
-    [_wholeController setLeftNormalized:(BOOL)[_leftStickNormalize state]];
-    [_leftStickAnalog setNormalized:(BOOL)[_leftStickNormalize state]];
-    [_wholeController setRightNormalized:(BOOL)[_rightStickNormalize state]];
-    [_rightStickAnalog setNormalized:(BOOL)[_rightStickNormalize state]];
-
-    // Sync settings between tabs
-    NSInteger tabIndex = [_tabView indexOfTabViewItem:[_tabView selectedTabViewItem]];
-
-    if (tabIndex == 0) { // Controller Test
-        [_leftLinkedAlt setState:[_leftLinked state]];
-        [_leftStickDeadzoneAlt setDoubleValue:[_leftStickDeadzone doubleValue]];
-        [_leftStickInvertXAlt setState:[_leftStickInvertX state]];
-        [_leftStickInvertYAlt setState:[_leftStickInvertY state]];
-        [_rightLinkedAlt setState:[_rightLinked state]];
-        [_rightStickDeadzoneAlt setDoubleValue:[_rightStickDeadzone doubleValue]];
-        [_rightStickInvertXAlt setState:[_rightStickInvertX state]];
-        [_rightStickInvertYAlt setState:[_rightStickInvertY state]];
-    }
-    else if (tabIndex == 2) { // Advanced Tab
-        [_leftLinked setState:[_leftLinkedAlt state]];
-        [_leftStickDeadzone setDoubleValue:[_leftStickDeadzoneAlt doubleValue]];
-        [_leftStickInvertX setState:[_leftStickInvertXAlt state]];
-        [_leftStickInvertY setState:[_leftStickInvertYAlt state]];
-        [_rightLinked setState:[_rightLinkedAlt state]];
-        [_rightStickDeadzone setDoubleValue:[_rightStickDeadzoneAlt doubleValue]];
-        [_rightStickInvertX setState:[_rightStickInvertXAlt state]];
-        [_rightStickInvertY setState:[_rightStickInvertYAlt state]];
-    }
+    [_wholeController setLnormalized:(BOOL)[_leftStickNormalize state]];
+    [_wholeController setRnormalized:(BOOL)[_rightStickNormalize state]];
     
     BOOL pretend360 = ([_pretend360Button state] == NSOnState);
     if (controllerType == XboxOneController || controllerType == XboxOnePretend360Controller)
@@ -956,46 +721,35 @@ static void callbackHandleDevice(void *param,io_iterator_t iterator)
                            @"InvertLeftY": @((BOOL)([_leftStickInvertY state]==NSOnState)),
                            @"InvertRightX": @((BOOL)([_rightStickInvertX state]==NSOnState)),
                            @"InvertRightY": @((BOOL)([_rightStickInvertY state]==NSOnState)),
-                           @"DeadzoneLeft": @((UInt16)[_leftStickDeadzone doubleValue]),
-                           @"DeadzoneRight": @((UInt16)[_rightStickDeadzone doubleValue]),
+                           @"DeadzoneLeft": @((UInt16)[_wholeController ldeadZone]),
+                           @"DeadzoneRight": @((UInt16)[_wholeController rdeadZone]),
                            @"RelativeLeft": @((BOOL)([_leftLinked state]==NSOnState)),
                            @"RelativeRight": @((BOOL)([_rightLinked state]==NSOnState)),
                            @"DeadOffLeft": @((BOOL)([_leftStickNormalize state]==NSOnState)),
                            @"DeadOffRight": @((BOOL)([_rightStickNormalize state]==NSOnState)),
                            @"ControllerType": @((UInt8)(controllerType)),
                            @"RumbleType": @((UInt8)([_rumbleOptions indexOfSelectedItem])),
-                           @"BindingUp": @((UInt8)([MyWhole360ControllerMapper mapping][0])),
-                           @"BindingDown": @((UInt8)([MyWhole360ControllerMapper mapping][1])),
-                           @"BindingLeft": @((UInt8)([MyWhole360ControllerMapper mapping][2])),
-                           @"BindingRight": @((UInt8)([MyWhole360ControllerMapper mapping][3])),
-                           @"BindingStart": @((UInt8)([MyWhole360ControllerMapper mapping][4])),
-                           @"BindingBack": @((UInt8)([MyWhole360ControllerMapper mapping][5])),
-                           @"BindingLSC": @((UInt8)([MyWhole360ControllerMapper mapping][6])),
-                           @"BindingRSC": @((UInt8)([MyWhole360ControllerMapper mapping][7])),
-                           @"BindingLB": @((UInt8)([MyWhole360ControllerMapper mapping][8])),
-                           @"BindingRB": @((UInt8)([MyWhole360ControllerMapper mapping][9])),
-                           @"BindingGuide": @((UInt8)([MyWhole360ControllerMapper mapping][10])),
-                           @"BindingA": @((UInt8)([MyWhole360ControllerMapper mapping][11])),
-                           @"BindingB": @((UInt8)([MyWhole360ControllerMapper mapping][12])),
-                           @"BindingX": @((UInt8)([MyWhole360ControllerMapper mapping][13])),
-                           @"BindingY": @((UInt8)([MyWhole360ControllerMapper mapping][14])),
+                           @"BindingUp": @((UInt8)([[Mapper instance] mapping][0])),
+                           @"BindingDown": @((UInt8)([[Mapper instance] mapping][1])),
+                           @"BindingLeft": @((UInt8)([[Mapper instance] mapping][2])),
+                           @"BindingRight": @((UInt8)([[Mapper instance] mapping][3])),
+                           @"BindingStart": @((UInt8)([[Mapper instance] mapping][4])),
+                           @"BindingBack": @((UInt8)([[Mapper instance] mapping][5])),
+                           @"BindingLSC": @((UInt8)([[Mapper instance] mapping][6])),
+                           @"BindingRSC": @((UInt8)([[Mapper instance] mapping][7])),
+                           @"BindingLB": @((UInt8)([[Mapper instance] mapping][8])),
+                           @"BindingRB": @((UInt8)([[Mapper instance] mapping][9])),
+                           @"BindingGuide": @((UInt8)([[Mapper instance] mapping][10])),
+                           @"BindingA": @((UInt8)([[Mapper instance] mapping][11])),
+                           @"BindingB": @((UInt8)([[Mapper instance] mapping][12])),
+                           @"BindingX": @((UInt8)([[Mapper instance] mapping][13])),
+                           @"BindingY": @((UInt8)([[Mapper instance] mapping][14])),
                            @"SwapSticks": @((BOOL)([_swapSticks state]==NSOnState)),
                            @"Pretend360": @((BOOL)pretend360)};
 
     // Set property
     IORegistryEntrySetCFProperties(registryEntry, (__bridge CFTypeRef)(dict));
     SetController(GetSerialNumber(registryEntry), dict);
-    // Update UI
-    [_leftDeadZone setLinked:[_leftLinked state] == NSOnState];
-    [_leftStickAnalog setLinked:[_leftLinked state] == NSOnState];
-    [_leftDeadZone setVal:[_leftStickDeadzone doubleValue]];
-    [_wholeController setLeftStickDeadzone:[_leftStickDeadzone doubleValue]];
-    [_leftStickAnalog setDeadzone:[_leftStickDeadzone doubleValue]];
-    [_rightDeadZone setLinked:[_rightLinked state] == NSOnState];
-    [_rightStickAnalog setLinked:[_rightLinked state] == NSOnState];
-    [_rightDeadZone setVal:[_rightStickDeadzone doubleValue]];
-    [_wholeController setRightStickDeadzone:[_rightStickDeadzone doubleValue]];
-    [_rightStickAnalog setDeadzone:[_rightStickDeadzone doubleValue]];
 }
 
 // Run an AppleScript from String and returns YES on successful execution
@@ -1090,65 +844,6 @@ static void callbackHandleDevice(void *param,io_iterator_t iterator)
     [self updateDeviceList];
 }
 
-// Asks the user to uninstall the package, If YES, runs inline AppleScript to do that procedure.
-- (IBAction)willPerformUninstallation:(id)sender
-{
-    NSAlert *alert = [[NSAlert alloc] init];
-    [alert addButtonWithTitle:@"YES"];
-    [alert addButtonWithTitle:@"NO"];
-    [alert setMessageText:@"Do you want to uninstall?"];
-    [alert setInformativeText:@"This operation cannot be undone."];
-    [alert setAlertStyle:NSAlertStyleWarning];
-
-    if ([alert runModal] != NSAlertFirstButtonReturn) {
-        NSLog(@"Uninstallation canceled!");
-        return;
-    }
-
-    NSLog(@"Will uninstall the driver...");
-
-    // quotes must be double escaped so the script will read \" properly
-    NSString *script =
-        @"do shell script \"\
-        launchctl unload /Library/LaunchDaemons/com.mice.360Daemon.plist\n\
-        kextunload -b \\\"com.mice.driver.Xbox360Controller\\\"\n\
-        kextunload -b \\\"com.mice.driver.Wireless360Controller\\\"\n\
-        kextunload -b \\\"com.mice.driver.WirelessGamingReceiver\\\"\n\
-        rm -f  /Library/LaunchDaemons/com.mice.360Daemon.plist\n\
-        rm -rf /Library/Application\\\\ Support/MICE/360Daemon.app\n\
-        rm -rf /System/Library/Extensions/360Controller.kext\n\
-        rm -rf /System/Library/Extensions/Wireless360Controller.kext\n\
-        rm -rf /System/Library/Extensions/WirelessGamingReceiver.kext\n\
-        rm -rf /Library/Extensions/360Controller.kext\n\
-        rm -rf /Library/Extensions/Wireless360Controller.kext\n\
-        rm -rf /Library/Extensions/WirelessGamingReceiver.kext\n\
-        rm -rf /Library/PreferencePanes/Pref360Control.prefPane\n\
-        pkgutil --forget com.mice.pkg.Xbox360controller\
-        \" with administrator privileges";
-
-    if (script != nil && [self runInlineAppleScript:script]) {
-        NSLog(@"...done!");
-
-        alert = [NSAlert alertWithMessageText:@"Success!"
-                                defaultButton:nil
-                              alternateButton:nil
-                                  otherButton:nil
-                    informativeTextWithFormat:@"The driver was uninstalled successfully!\n Note that you may need to restart your Mac to be able to install it again properly."];
-        [alert runModal];
-
-        // close the Preference Panel, as it needs to clean stuff
-        [[NSApplication sharedApplication] terminate:nil];
-    } else {
-        NSLog(@"...error!");
-        alert = [NSAlert alertWithMessageText:@"Error!"
-                                defaultButton:nil
-                              alternateButton:nil
-                                  otherButton:nil
-                    informativeTextWithFormat:@"Error Uninstalling the Driver!"];
-        [alert runModal];
-    }
-}
-
 // Handle I/O Kit device add/remove
 - (void)handleDeviceChange
 {
@@ -1168,15 +863,16 @@ static void callbackHandleDevice(void *param,io_iterator_t iterator)
 }
 
 - (IBAction)startRemappingPressed:(id)sender {
-    if (![_wholeControllerMapper isMapping])
-        [_wholeControllerMapper runMapperWithButton:_remappingButton andOwner:self];
+    if (![[Mapper instance] active])
+		[[Mapper instance] runWithButton:_remappingButton owner:self];
     else
-        [_wholeControllerMapper cancelMappingWithButton:_remappingButton andOwner:self];
+		[[Mapper instance] runWithButton:_remappingButton owner:self];
+		[[Mapper instance] cancelWithButton:_remappingButton owner:self];
 }
 
 - (IBAction)resetRemappingPressed:(id)sender {
     [_remappingButton setState:NSOffState];
-    [_wholeControllerMapper resetWithOwner:self];
+    [[Mapper instance] resetWithOwner:self];
 }
 
 - (IBAction)pretend360Checked:(id)sender {

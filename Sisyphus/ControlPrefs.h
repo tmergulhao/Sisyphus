@@ -22,6 +22,9 @@
  */
 #import <Cocoa/Cocoa.h>
 
+#ifndef ControlPrefs_h
+#define ControlPrefs_h
+
 #define DOM_DAEMON      CFSTR("com.mice.driver.Xbox360Controller.daemon")
 #define DOM_CONTROLLERS CFSTR("com.mice.driver.Xbox360Controller.devices")
 
@@ -43,3 +46,5 @@ NSDictionary* GetKnownDevices();
 // Utility functions
 NSString* GetSerialNumber(io_service_t device);
 void ConfigController(io_service_t device, NSDictionary *config);
+
+#endif
