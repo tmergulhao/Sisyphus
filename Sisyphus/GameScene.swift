@@ -93,21 +93,22 @@ class GameScene: SKScene {
         self.touchUp(atPoint: event.location(in: self))
     }
     
-    override func keyDown(with event: NSEvent) {
-        switch event.keyCode {
-        case 0x31:
-            if let label = self.label {
-                label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
-            }
-        default:
-            print("keyDown: \(event.characters!) keyCode: \(event.keyCode)")
-        }
-    }
-    
-    
+//    override func keyDown(with event: NSEvent) {
+//        switch event.keyCode {
+//        case 0x31:
+//            if let label = self.label {
+//                label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
+//            }
+//        default:
+//            print("keyDown: \(event.characters!) keyCode: \(event.keyCode)")
+//        }
+//    }
+
+	var keysPressed: Set<GameKeys> = []
+
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
-        
+
         // Initialize _lastUpdateTime if it has not already been
         if (self.lastUpdateTime == 0) {
             self.lastUpdateTime = currentTime
