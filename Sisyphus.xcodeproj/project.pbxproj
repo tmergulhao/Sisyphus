@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		496A920B1DCB8EF6001A0843 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496A920A1DCB8EF6001A0843 /* MenuScene.swift */; };
-		496A920F1DCB8F62001A0843 /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 496A920E1DCB8F62001A0843 /* MenuScene.sks */; };
 		793C3DC31DC4095100351D34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793C3DC21DC4095100351D34 /* AppDelegate.swift */; };
 		793C3DC51DC4095100351D34 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 793C3DC41DC4095100351D34 /* GameScene.sks */; };
 		793C3DC71DC4095100351D34 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 793C3DC61DC4095100351D34 /* Actions.sks */; };
@@ -18,13 +17,11 @@
 		793C3DD01DC4095100351D34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 793C3DCE1DC4095100351D34 /* Main.storyboard */; };
 		793C3DD81DC4099300351D34 /* Computer Pixel-7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 793C3DD71DC4099300351D34 /* Computer Pixel-7.ttf */; };
 		793C3DDA1DC40F2100351D34 /* TypedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793C3DD91DC40F2100351D34 /* TypedLabel.swift */; };
-		796971FA1DD3529E008375E4 /* GameScene+Controls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796971F91DD3529E008375E4 /* GameScene+Controls.swift */; };
-		796971FC1DD35631008375E4 /* Simulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796971FB1DD35631008375E4 /* Simulation.swift */; };
+		796971FA1DD3529E008375E4 /* GameKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796971F91DD3529E008375E4 /* GameKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		496A920A1DCB8EF6001A0843 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
-		496A920E1DCB8F62001A0843 /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = MenuScene.sks; path = ../MenuScene.sks; sourceTree = "<group>"; };
 		793C3DBF1DC4095100351D34 /* Sisyphus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sisyphus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		793C3DC21DC4095100351D34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		793C3DC41DC4095100351D34 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -36,8 +33,7 @@
 		793C3DD11DC4095100351D34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		793C3DD71DC4099300351D34 /* Computer Pixel-7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Computer Pixel-7.ttf"; sourceTree = "<group>"; };
 		793C3DD91DC40F2100351D34 /* TypedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedLabel.swift; sourceTree = "<group>"; };
-		796971F91DD3529E008375E4 /* GameScene+Controls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameScene+Controls.swift"; sourceTree = "<group>"; };
-		796971FB1DD35631008375E4 /* Simulation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Simulation.swift; sourceTree = "<group>"; };
+		796971F91DD3529E008375E4 /* GameKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,16 +67,14 @@
 			isa = PBXGroup;
 			children = (
 				793C3DC21DC4095100351D34 /* AppDelegate.swift */,
-				793C3DC41DC4095100351D34 /* GameScene.sks */,
-				496A920E1DCB8F62001A0843 /* MenuScene.sks */,
-				793C3DC61DC4095100351D34 /* Actions.sks */,
 				793C3DC81DC4095100351D34 /* GameScene.swift */,
-				796971F91DD3529E008375E4 /* GameScene+Controls.swift */,
-				796971FB1DD35631008375E4 /* Simulation.swift */,
+				796971F91DD3529E008375E4 /* GameKeys.swift */,
 				793C3DD91DC40F2100351D34 /* TypedLabel.swift */,
 				496A920A1DCB8EF6001A0843 /* MenuScene.swift */,
 				793C3DCA1DC4095100351D34 /* ViewController.swift */,
 				793C3DCC1DC4095100351D34 /* Assets.xcassets */,
+				793C3DC41DC4095100351D34 /* GameScene.sks */,
+				793C3DC61DC4095100351D34 /* Actions.sks */,
 				793C3DCE1DC4095100351D34 /* Main.storyboard */,
 				793C3DD71DC4099300351D34 /* Computer Pixel-7.ttf */,
 				793C3DD11DC4095100351D34 /* Info.plist */,
@@ -149,7 +143,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				793C3DC51DC4095100351D34 /* GameScene.sks in Resources */,
-				496A920F1DCB8F62001A0843 /* MenuScene.sks in Resources */,
 				793C3DCD1DC4095100351D34 /* Assets.xcassets in Resources */,
 				793C3DD81DC4099300351D34 /* Computer Pixel-7.ttf in Resources */,
 				793C3DC71DC4095100351D34 /* Actions.sks in Resources */,
@@ -168,8 +161,7 @@
 				793C3DDA1DC40F2100351D34 /* TypedLabel.swift in Sources */,
 				496A920B1DCB8EF6001A0843 /* MenuScene.swift in Sources */,
 				793C3DC91DC4095100351D34 /* GameScene.swift in Sources */,
-				796971FC1DD35631008375E4 /* Simulation.swift in Sources */,
-				796971FA1DD3529E008375E4 /* GameScene+Controls.swift in Sources */,
+				796971FA1DD3529E008375E4 /* GameKeys.swift in Sources */,
 				793C3DC31DC4095100351D34 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
