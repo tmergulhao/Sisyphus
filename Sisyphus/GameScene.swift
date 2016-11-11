@@ -10,78 +10,65 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene {
+
+	let fontName = "Computer Pixel-7"
     
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
 	var keys: Set<GameKeys> = []
-    
-    private var lastUpdateTime : TimeInterval = 0
-    private var label : SKLabelNode?
-    private var spinnyNode : SKShapeNode?
+
+    var label : SKLabelNode?
     
     override func sceneDidLoad() {
-        
-        self.lastUpdateTime = 0
 
-        let typedLabel = TypedLabel(typingInterval: 10000, fontNamed: "Computer Pixel-7", andText: "Hello World")
+		self.backgroundColor = NSColor.white
 
-//      typedLabel.fontName = "Computer Pixel-7"
-//		typedLabel.fontColor = SKColor.white
-//		typedLabel.fontSize = 30
-//		typedLabel.horizontalAlignmentMode = .center
-//		typedLabel.verticalAlignmentMode = .baseline
-		typedLabel.position = CGPoint(x: 100, y: 100)// CGPoint(x: size.width / 2.0, y: size.height / 3.0)
+		let idle_cockroach = Cockroach()
+		idle_cockroach.state = .idle
 
-		self.addChild(typedLabel)
+		idle_cockroach.position = CGPoint(x: -frame.height/4, y: 0)
 
-		typedLabel.type()
+		self.addChild(idle_cockroach)
+
+		let flying_cockroach = Cockroach()
+		flying_cockroach.state = .flying
+
+		flying_cockroach.position = CGPoint(x: frame.height/4, y: 0)
+
+		self.addChild(flying_cockroach)
+
+		let label = SKLabelNode(fontNamed: fontName)
+
+		label.text = "Hello World!"
+		label.fontColor = SKColor.black
+		label.fontSize = 30
+		label.horizontalAlignmentMode = .center
+		label.verticalAlignmentMode = .baseline
+
+		label.position = CGPoint(x: 0, y: frame.height/4)
+
+		self.label = label
+
+		self.addChild(label)
     }
 
-//	fileprivate var previousTime: TimeInterval = 0
-//	fileprivate var deltaTime: TimeInterval = 0
-//
-//	func update(_ currentTime: TimeInterval, for scene: SKScene) {
-//
-//		if previousTime == 00 {
-//			previousTime = currentTime
-//		}
-//
-//		deltaTime = currentTime - previousTime
-//		previousTime = currentTime
-//
-//		guard let level = scene as? GameScene else { return }
-//
-//		let key = level.keys
-//
-//		if key.contains(.left) {
-//			pressingLeft = true
-//		}
-//
-//		if key.contains(.right) {
-//			pressingRight = true
-//		}
-//
-//		if key.contains(.jump) {
-//			pressingJump = true
-//		}
-//	}
+	var previousTime : TimeInterval = 0
 
     override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
 
-        // Initialize _lastUpdateTime if it has not already been
-        if (self.lastUpdateTime == 0) {
-            self.lastUpdateTime = currentTime
+        if (previousTime == 0) {
+            previousTime = currentTime
         }
-        
-        // Calculate time since last update
-        let dt = currentTime - self.lastUpdateTime
-        
-        // Update entities
+
+		let deltaTime = previousTime - currentTime
+
         for entity in self.entities {
-            entity.update(deltaTime: dt)
+            entity.update(deltaTime: deltaTime)
         }
         
-        self.lastUpdateTime = currentTime
+        previousTime = currentTime
     }
+	override func mouseDown(with event: NSEvent) {
+		Swift.print(event.location(in: self))
+	}
 }
