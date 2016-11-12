@@ -46,6 +46,8 @@ class SelectionScene : Scene {
 		label.position = CGPoint(x: 0, y: frame.height/4)
 
 		addChild(label)
+
+		super.sceneDidLoad()
 	}
 
 	var items : Array<SKSpriteNode> = []

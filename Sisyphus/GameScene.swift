@@ -40,6 +40,8 @@ class GameScene : Scene {
 
 		insect.position = CGPoint(x: 0, y: 0)
 		addChild(insect)
+
+		super.sceneDidLoad()
 	}
 
 	override func update(_ currentTime: TimeInterval) {

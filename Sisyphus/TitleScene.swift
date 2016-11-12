@@ -36,6 +36,8 @@ class TitleScene : Scene {
 		label.run(blink)
 
 		addChild(label)
+
+		super.sceneDidLoad()
 	}
 
 	override func update(_ currentTime: TimeInterval) {
