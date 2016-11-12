@@ -13,11 +13,13 @@
 		793C3DC71DC4095100351D34 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 793C3DC61DC4095100351D34 /* Actions.sks */; };
 		793C3DC91DC4095100351D34 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793C3DC81DC4095100351D34 /* GameScene.swift */; };
 		793C3DCB1DC4095100351D34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793C3DCA1DC4095100351D34 /* ViewController.swift */; };
-		793C3DCD1DC4095100351D34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 793C3DCC1DC4095100351D34 /* Assets.xcassets */; };
 		793C3DD01DC4095100351D34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 793C3DCE1DC4095100351D34 /* Main.storyboard */; };
 		793C3DD81DC4099300351D34 /* Computer Pixel-7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 793C3DD71DC4099300351D34 /* Computer Pixel-7.ttf */; };
 		796971FA1DD3529E008375E4 /* GameKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796971F91DD3529E008375E4 /* GameKeys.swift */; };
 		799DEED11DD643EB00FD77EA /* Cockroach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799DEED01DD643EB00FD77EA /* Cockroach.swift */; };
+		799DEED31DD6B8BE00FD77EA /* Mite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799DEED21DD6B8BE00FD77EA /* Mite.swift */; };
+		799DEED51DD6BA4500FD77EA /* Fly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799DEED41DD6BA4500FD77EA /* Fly.swift */; };
+		799DEED71DD6BE0A00FD77EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 799DEED61DD6BE0A00FD77EA /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,12 +30,14 @@
 		793C3DC61DC4095100351D34 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		793C3DC81DC4095100351D34 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		793C3DCA1DC4095100351D34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		793C3DCC1DC4095100351D34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		793C3DCF1DC4095100351D34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		793C3DD11DC4095100351D34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		793C3DD71DC4099300351D34 /* Computer Pixel-7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Computer Pixel-7.ttf"; sourceTree = "<group>"; };
 		796971F91DD3529E008375E4 /* GameKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameKeys.swift; sourceTree = "<group>"; };
 		799DEED01DD643EB00FD77EA /* Cockroach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cockroach.swift; sourceTree = "<group>"; };
+		799DEED21DD6B8BE00FD77EA /* Mite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mite.swift; sourceTree = "<group>"; };
+		799DEED41DD6BA4500FD77EA /* Fly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fly.swift; sourceTree = "<group>"; };
+		799DEED61DD6BE0A00FD77EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,10 +73,12 @@
 				793C3DC21DC4095100351D34 /* AppDelegate.swift */,
 				793C3DC81DC4095100351D34 /* GameScene.swift */,
 				796971F91DD3529E008375E4 /* GameKeys.swift */,
+				799DEED21DD6B8BE00FD77EA /* Mite.swift */,
+				799DEED41DD6BA4500FD77EA /* Fly.swift */,
 				799DEED01DD643EB00FD77EA /* Cockroach.swift */,
 				496A920A1DCB8EF6001A0843 /* MenuScene.swift */,
 				793C3DCA1DC4095100351D34 /* ViewController.swift */,
-				793C3DCC1DC4095100351D34 /* Assets.xcassets */,
+				799DEED61DD6BE0A00FD77EA /* Assets.xcassets */,
 				793C3DC41DC4095100351D34 /* GameScene.sks */,
 				793C3DC61DC4095100351D34 /* Actions.sks */,
 				793C3DCE1DC4095100351D34 /* Main.storyboard */,
@@ -143,10 +149,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				793C3DC51DC4095100351D34 /* GameScene.sks in Resources */,
-				793C3DCD1DC4095100351D34 /* Assets.xcassets in Resources */,
 				793C3DD81DC4099300351D34 /* Computer Pixel-7.ttf in Resources */,
 				793C3DC71DC4095100351D34 /* Actions.sks in Resources */,
 				793C3DD01DC4095100351D34 /* Main.storyboard in Resources */,
+				799DEED71DD6BE0A00FD77EA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,8 +167,10 @@
 				496A920B1DCB8EF6001A0843 /* MenuScene.swift in Sources */,
 				793C3DC91DC4095100351D34 /* GameScene.swift in Sources */,
 				799DEED11DD643EB00FD77EA /* Cockroach.swift in Sources */,
+				799DEED31DD6B8BE00FD77EA /* Mite.swift in Sources */,
 				796971FA1DD3529E008375E4 /* GameKeys.swift in Sources */,
 				793C3DC31DC4095100351D34 /* AppDelegate.swift in Sources */,
+				799DEED51DD6BA4500FD77EA /* Fly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

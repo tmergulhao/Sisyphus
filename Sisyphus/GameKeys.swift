@@ -8,14 +8,18 @@
 
 import SpriteKit
 
-enum GameKeys : String {
+enum GameKeys {
 	case left
 	case right
-	case jump = " "
-	case run = "r"
+	case action
+	case run
 
-	init? (_ rawValue : UInt16) {
+	init? (rawValue : UInt16) {
 		switch rawValue {
+		case " ":
+			self = .action
+		case "r":
+			self = .run
 		case UInt16(NSRightArrowFunctionKey):
 			self = .right
 		case UInt16(NSLeftArrowFunctionKey):
@@ -36,27 +40,32 @@ extension GameScene {
 
 	override func keyDown(with theEvent: NSEvent) {
 
-		Swift.print("keyDown: \(theEvent.characters!) keyCode: \(theEvent.keyCode)")
-
 		let key = theEvent.characters?.utf16.first ?? 0
 
-		guard let validKey = GameKeys(key) else { return }
+		guard let validKey = GameKeys(rawValue: key) else { return }
 
 		keys.insert(validKey)
-
-		super.keyDown(with: theEvent)
 	}
 
 	override func keyUp(with theEvent: NSEvent) {
 
 		let key = theEvent.characters?.utf16.first ?? 0
 
-		guard let validKey = GameKeys(key) else { return }
+		guard let validKey = GameKeys(rawValue: key) else { return }
 
 		keys.remove(validKey)
-
-		super.keyUp(with: theEvent)
 	}
 
 }
 
+//		if theEvent.modifierFlags.contains(.shift) {
+//			keys.insert(GameKeys.run)
+//		}
+//		switch event.keyCode {
+//		case 0x31:
+//			if let label = self.label {
+//				label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
+//			}
+//		default:
+//
+//		}

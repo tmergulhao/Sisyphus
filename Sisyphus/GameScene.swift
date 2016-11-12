@@ -12,30 +12,48 @@ import GameplayKit
 class GameScene: SKScene {
 
 	let fontName = "Computer Pixel-7"
-    
-    var entities = [GKEntity]()
-    var graphs = [String : GKGraph]()
-	var keys: Set<GameKeys> = []
+
+	var keys : Set<GameKeys> = []
+
+	var entities : Array<GKEntity> = [GKEntity]()
+	var graphs : Dictionary<String, GKGraph> = [String : GKGraph]()
 
     var label : SKLabelNode?
+
+	var cockroach : Cockroach?
+	var mite : Mite?
+	var fly : Fly?
+
+	func addItems () {
+
+		let cockroach = Cockroach()
+
+		cockroach.position = CGPoint(x: 0, y: 0)
+
+		self.cockroach = cockroach
+		addChild(cockroach)
+
+		let mite = Mite()
+
+		mite.position = CGPoint(x: -0.33*frame.width, y: 0)
+
+		self.mite = mite
+		addChild(mite)
+
+		let fly = Fly()
+
+		fly.position = CGPoint(x: 0.33*frame.width, y: 0)
+
+		self.fly = fly
+		addChild(fly)
+
+	}
     
     override func sceneDidLoad() {
 
-		self.backgroundColor = NSColor.white
+		backgroundColor = NSColor.white
 
-		let idle_cockroach = Cockroach()
-		idle_cockroach.state = .idle
-
-		idle_cockroach.position = CGPoint(x: -frame.height/4, y: 0)
-
-		self.addChild(idle_cockroach)
-
-		let flying_cockroach = Cockroach()
-		flying_cockroach.state = .flying
-
-		flying_cockroach.position = CGPoint(x: frame.height/4, y: 0)
-
-		self.addChild(flying_cockroach)
+		addItems()
 
 		let label = SKLabelNode(fontNamed: fontName)
 
@@ -62,13 +80,20 @@ class GameScene: SKScene {
 
 		let deltaTime = previousTime - currentTime
 
+		if keys.contains(.action) {
+			cockroach?.state = .flying
+			mite?.state = .jumping
+			fly?.state = .flying
+		} else {
+			cockroach?.state = .idle
+			mite?.state = .idle
+			fly?.state = .idle
+		}
+
         for entity in self.entities {
             entity.update(deltaTime: deltaTime)
         }
-        
+
         previousTime = currentTime
     }
-	override func mouseDown(with event: NSEvent) {
-		Swift.print(event.location(in: self))
-	}
 }
