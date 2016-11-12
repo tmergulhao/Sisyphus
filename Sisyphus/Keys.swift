@@ -8,20 +8,20 @@
 
 import SpriteKit
 
-enum GameKeys : UInt16 {
+enum Keys : UInt16 {
 	case left = 0, right = 1, up = 2, down = 3, action = 4, run = 5, none = 14
 
 	var mask : UInt16 {
 		return 1 << rawValue
 	}
 
-	static func combine (_ elements : Array<GameKeys>) -> UInt16 {
+	static func combine (_ elements : Array<Keys>) -> UInt16 {
 		return elements
 			.map { 1 << $0.rawValue }
 			.reduce(0) { $0 | $1 }
 	}
 
-	static func validate (rawValue : UInt16) -> GameKeys? {
+	static func validate (rawValue : UInt16) -> Keys? {
 		switch rawValue {
 		case " ": return .action
 		case "r": return .run
@@ -38,28 +38,4 @@ extension UInt16 : ExpressibleByUnicodeScalarLiteral {
 	public init(unicodeScalarLiteral value : UnicodeScalar) {
 		self = UInt16(value.value)
 	}
-}
-
-extension GameScene {
-
-	override func keyDown(with theEvent: NSEvent) {
-
-		let key = theEvent.characters?.utf16.first ?? 0
-
-		guard let validKey : GameKeys = GameKeys.validate(rawValue: key) else { return }
-
-		keys.insert(validKey)
-		keysMask |= validKey.mask
-	}
-
-	override func keyUp(with theEvent: NSEvent) {
-
-		let key = theEvent.characters?.utf16.first ?? 0
-
-		guard let validKey : GameKeys = GameKeys.validate(rawValue: key) else { return }
-
-		keys.remove(validKey)
-		keysMask &= ~validKey.mask
-	}
-
 }
