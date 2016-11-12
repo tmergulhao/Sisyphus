@@ -20,6 +20,11 @@ enum Keys : UInt16 {
 			.map { 1 << $0.rawValue }
 			.reduce(0) { $0 | $1 }
 	}
+	static func combine (_ elements : Set<Keys>) -> UInt16 {
+		return elements
+			.map { 1 << $0.rawValue }
+			.reduce(0) { $0 | $1 }
+	}
 
 	static func validate (rawValue : UInt16) -> Keys? {
 		switch rawValue {
