@@ -8,24 +8,28 @@
 
 import SpriteKit
 
-enum GameKeys {
-	case left
-	case right
-	case action
-	case run
+enum GameKeys : UInt16 {
+	case left = 0, right = 1, up = 2, down = 3, action = 4, run = 5, none = 14
 
-	init? (rawValue : UInt16) {
+	var mask : UInt16 {
+		return 1 << rawValue
+	}
+
+	static func combine (_ elements : Array<GameKeys>) -> UInt16 {
+		return elements
+			.map { 1 << $0.rawValue }
+			.reduce(0) { $0 | $1 }
+	}
+
+	static func validate (rawValue : UInt16) -> GameKeys? {
 		switch rawValue {
-		case " ":
-			self = .action
-		case "r":
-			self = .run
-		case UInt16(NSRightArrowFunctionKey):
-			self = .right
-		case UInt16(NSLeftArrowFunctionKey):
-			self = .left
-		default:
-			return nil
+		case " ": return .action
+		case "r": return .run
+		case UInt16(NSRightArrowFunctionKey): return .right
+		case UInt16(NSLeftArrowFunctionKey): return .left
+		case UInt16(NSDownArrowFunctionKey): return .down
+		case UInt16(NSUpArrowFunctionKey): return .up
+		default: return nil
 		}
 	}
 }
@@ -42,30 +46,20 @@ extension GameScene {
 
 		let key = theEvent.characters?.utf16.first ?? 0
 
-		guard let validKey = GameKeys(rawValue: key) else { return }
+		guard let validKey : GameKeys = GameKeys.validate(rawValue: key) else { return }
 
 		keys.insert(validKey)
+		keysMask |= validKey.mask
 	}
 
 	override func keyUp(with theEvent: NSEvent) {
 
 		let key = theEvent.characters?.utf16.first ?? 0
 
-		guard let validKey = GameKeys(rawValue: key) else { return }
+		guard let validKey : GameKeys = GameKeys.validate(rawValue: key) else { return }
 
 		keys.remove(validKey)
+		keysMask &= ~validKey.mask
 	}
 
 }
-
-//		if theEvent.modifierFlags.contains(.shift) {
-//			keys.insert(GameKeys.run)
-//		}
-//		switch event.keyCode {
-//		case 0x31:
-//			if let label = self.label {
-//				label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
-//			}
-//		default:
-//
-//		}
