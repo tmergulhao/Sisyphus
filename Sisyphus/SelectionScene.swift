@@ -129,6 +129,7 @@ class SelectionScene : Scene {
 		let deltaTime = previousTime - currentTime
 
 		switch directional {
+
 		case Directional.right where !directionalGuard.contains(.right):
 
 			directional.insert(.right)
@@ -154,7 +155,7 @@ class SelectionScene : Scene {
 
 			let transition = SKTransition.crossFade(withDuration: 1)
 
-			let scene = SelectionScene.count > 3 ? GameScene(size: size) : SelectionScene(size: size)
+			let scene = SelectionScene.count > 2 ? GameScene(size: size) : SelectionScene(size: size)
 
 			scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
 			scene.actionGuard = actionGuard
