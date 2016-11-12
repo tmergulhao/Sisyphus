@@ -73,16 +73,18 @@ class SelectionScene : Scene {
 
 	override func sceneDidLoad() {
 
+		keyGuard.remove(.action)
+		keyGuard.remove(.left)
+		keyGuard.remove(.right)
+
 		SelectionScene.count += 1
 
 		backgroundColor = NSColor.white
 
-		var questions = SelectionScene.questions
-		let max : Double = Double(questions.count - 1)
-		let rand : Double = floor(drand48() * max)
-		let index : Int = Int(rand)
+		let count = SelectionScene.questions.count
+		let index = Int(arc4random_uniform(UInt32(count)))
 
-		let question : Dictionary<String,AnyObject> = questions.remove(at: index)
+		let question : Dictionary<String,AnyObject> = SelectionScene.questions.remove(at: index)
 
 		addItems(forQuestion : question)
 
@@ -123,30 +125,38 @@ class SelectionScene : Scene {
 		}
 
 		let deltaTime = previousTime - currentTime
+
 		switch keysMask & ~Keys.combine([.down, .up]) {
 		case Keys.combine([.left, .right]), Keys.combine([]): break
 		case Keys.right.mask where !keyGuard.contains(.right):
+
 			keyGuard.insert(.right)
 			if let newSelection = SelectionState(rawValue: selection.rawValue + 1) {
 				selection = newSelection
 			}
 			break
+
 		case Keys.left.mask where !keyGuard.contains(.left):
+
 			keyGuard.insert(.left)
 			if let newSelection = SelectionState(rawValue: selection.rawValue - 1) {
 				selection = newSelection
 			}
 			break
+
 		default: break
 		}
 
-		if keys.contains(.action) {
+		if keys.contains(.action) && !keyGuard.contains(.action) {
 
-			let transition = SKTransition.crossFade(withDuration: 0)
+			keyGuard.insert(.action)
+
+			let transition = SKTransition.crossFade(withDuration: 1)
 
 			let scene = SelectionScene.count > 3 ? GameScene(size: size) : SelectionScene(size: size)
 
 			scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+			scene.keyGuard = keyGuard
 
 			transition.pausesOutgoingScene = false
 
