@@ -85,7 +85,7 @@ class GameScene: SKScene {
 
     override func update(_ currentTime: TimeInterval) {
 
-		let rand : Bool = drand48() > 0.5
+		let rand : Bool = drand48() > 0.8
 		var speed : CGFloat = 60
 
         if (previousTime == 0) {
@@ -99,9 +99,9 @@ class GameScene: SKScene {
 
 			label?.text = "Pressing spacebar"
 
-			cockroach?.state = .flying
-			mite?.state = .jumping
-			fly?.state = .flying
+			cockroach?.state = .action
+			mite?.state = .action
+			fly?.state = .action
 		} else {
 			label?.text = ""
 
@@ -128,9 +128,6 @@ class GameScene: SKScene {
 		if let angle = _angle {
 			let time = CGFloat(deltaTime)
 			let direction = CGVector(dx: speed * time * sin(angle.radians), dy: speed * time * -cos(angle.radians))
-
-			Swift.print(sin(angle))
-			Swift.print(direction)
 
 			let rotate = SKAction.rotate(toAngle: angle.radians, duration: 0.2, shortestUnitArc: rand)
 			let move = SKAction.move(by: direction, duration: 0.2)

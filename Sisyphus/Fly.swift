@@ -8,57 +8,34 @@
 
 import SpriteKit
 
-enum FlyState {
-	case none
-	case flying
-	case idle
-}
+class Fly : Insect {
 
-class Fly : SKSpriteNode {
-
-	fileprivate static let atlas = { return SKTextureAtlas(named: "fly") }()
-
-	fileprivate static let idle : SKAction = {
-		let textures = (1...3).map { atlas.textureNamed("idle_\($0)") }
-
-		let action =  SKAction.animate(with: textures, timePerFrame: 0.2)
-
-		return SKAction.repeatForever(action)
+	static let idle : SKAction = {
+		return Insect.animation(with: "idle_", numberOfTextures: 3, atlasName: "fly", timePerFrame: 0.2)
 	}()
 
-	fileprivate static let flying : SKAction = {
-		let textures = (1...2).map { atlas.textureNamed("flying_\($0)") }
-
-		let action =  SKAction.animate(with: textures, timePerFrame: 0.2)
-
-		return SKAction.repeatForever(action)
+	static let action : SKAction = {
+		return Insect.animation(with: "flying_", numberOfTextures: 2, atlasName: "fly", timePerFrame: 0.2)
 	}()
 
-	fileprivate var lastState : FlyState = .none
-	var state : FlyState = .idle {
-		didSet {
-			if lastState != state {
-				lastState = state
-				removeAllActions()
+	override func changeState(from before: InsectState, to after: InsectState) {
+		removeAllActions()
 
-				switch state {
-				case .flying: run(Fly.flying)
-				case .idle: run(Fly.idle)
-				default: break
-				}
-			}
+		switch after {
+		case .action: run(Fly.action)
+		case .moving: run(Fly.action)
+		case .idle: run(Fly.idle)
+		default: break
 		}
 	}
 
-	init () {
-		let texture = Fly.atlas.textureNamed("idle_1")
-
-		super.init(texture: nil, color: NSColor.clear, size: texture.size())
-
+	override init () {
+		super.init()
 		name = "fly"
 	}
 
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
+
 }

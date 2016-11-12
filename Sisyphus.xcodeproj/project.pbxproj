@@ -20,6 +20,7 @@
 		799DEED31DD6B8BE00FD77EA /* Mite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799DEED21DD6B8BE00FD77EA /* Mite.swift */; };
 		799DEED51DD6BA4500FD77EA /* Fly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799DEED41DD6BA4500FD77EA /* Fly.swift */; };
 		799DEED71DD6BE0A00FD77EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 799DEED61DD6BE0A00FD77EA /* Assets.xcassets */; };
+		799DEED91DD6DC1800FD77EA /* Insect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799DEED81DD6DC1800FD77EA /* Insect.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		799DEED21DD6B8BE00FD77EA /* Mite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mite.swift; sourceTree = "<group>"; };
 		799DEED41DD6BA4500FD77EA /* Fly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fly.swift; sourceTree = "<group>"; };
 		799DEED61DD6BE0A00FD77EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		799DEED81DD6DC1800FD77EA /* Insect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Insect.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				793C3DC21DC4095100351D34 /* AppDelegate.swift */,
 				793C3DC81DC4095100351D34 /* GameScene.swift */,
 				796971F91DD3529E008375E4 /* GameKeys.swift */,
+				799DEED81DD6DC1800FD77EA /* Insect.swift */,
 				799DEED21DD6B8BE00FD77EA /* Mite.swift */,
 				799DEED41DD6BA4500FD77EA /* Fly.swift */,
 				799DEED01DD643EB00FD77EA /* Cockroach.swift */,
@@ -167,6 +170,7 @@
 				496A920B1DCB8EF6001A0843 /* MenuScene.swift in Sources */,
 				793C3DC91DC4095100351D34 /* GameScene.swift in Sources */,
 				799DEED11DD643EB00FD77EA /* Cockroach.swift in Sources */,
+				799DEED91DD6DC1800FD77EA /* Insect.swift in Sources */,
 				799DEED31DD6B8BE00FD77EA /* Mite.swift in Sources */,
 				796971FA1DD3529E008375E4 /* GameKeys.swift in Sources */,
 				793C3DC31DC4095100351D34 /* AppDelegate.swift in Sources */,

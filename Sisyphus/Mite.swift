@@ -8,57 +8,34 @@
 
 import SpriteKit
 
-enum MiteState {
-	case none
-	case jumping
-	case idle
-}
+class Mite : Insect {
 
-class Mite : SKSpriteNode {
-
-	fileprivate static let atlas = { return SKTextureAtlas(named: "mite") }()
-
-	fileprivate static let idle : SKAction = {
-		let textures = (1...2).map { atlas.textureNamed("idle_\($0)") }
-
-		let action =  SKAction.animate(with: textures, timePerFrame: 0.2)
-
-		return SKAction.repeatForever(action)
+	static let idle : SKAction = {
+		return Insect.animation(with: "idle_", numberOfTextures: 2, atlasName: "mite", timePerFrame: 0.2)
 	}()
 
-	fileprivate static let jumping : SKAction = {
-		let textures = (1...2).map { atlas.textureNamed("idle_\($0)") }
-
-		let action =  SKAction.animate(with: textures, timePerFrame: 0.08)
-
-		return SKAction.repeatForever(action)
+	static let action : SKAction = {
+		return Insect.animation(with: "idle_", numberOfTextures: 2, atlasName: "mite", timePerFrame: 0.08)
 	}()
 
-	fileprivate var lastState : MiteState = .none
-	var state : MiteState = .idle {
-		didSet {
-			if lastState != state {
-				lastState = state
-				removeAllActions()
+	override func changeState(from before: InsectState, to after: InsectState) {
+		removeAllActions()
 
-				switch state {
-				case .jumping: run(Mite.jumping)
-				case .idle: run(Mite.idle)
-				default: break
-				}
-			}
+		switch after {
+		case .action: run(Mite.action)
+		case .moving: run(Mite.action)
+		case .idle: run(Mite.idle)
+		default: break
 		}
 	}
 
-	init () {
-		let texture = Mite.atlas.textureNamed("idle_1")
-
-		super.init(texture: nil, color: NSColor.clear, size: texture.size())
-
+	override init () {
+		super.init()
 		name = "mite"
 	}
 
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
+
 }
