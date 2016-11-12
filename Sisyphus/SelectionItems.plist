@@ -11,7 +11,7 @@
 			<string>¿Cuál usarías como arma?</string>
 			<key>images</key>
 			<array>
-				<string>pistol</string>
+				<string>gun</string>
 				<string>pencil</string>
 				<string>lightsaber</string>
 			</array>

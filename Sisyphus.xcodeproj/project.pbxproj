@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		792650DE1DD7542A006C2F9A /* SelectionItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 792650DD1DD7542A006C2F9A /* SelectionItems.plist */; };
+		792650E01DD76E35006C2F9A /* TitleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792650DF1DD76E35006C2F9A /* TitleScene.swift */; };
 		793C3DC31DC4095100351D34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793C3DC21DC4095100351D34 /* AppDelegate.swift */; };
-		793C3DC51DC4095100351D34 /* SelectionScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 793C3DC41DC4095100351D34 /* SelectionScene.sks */; };
+		793C3DC51DC4095100351D34 /* Scene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 793C3DC41DC4095100351D34 /* Scene.sks */; };
 		793C3DC71DC4095100351D34 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 793C3DC61DC4095100351D34 /* Actions.sks */; };
 		793C3DC91DC4095100351D34 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793C3DC81DC4095100351D34 /* Scene.swift */; };
 		793C3DCB1DC4095100351D34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793C3DCA1DC4095100351D34 /* ViewController.swift */; };
@@ -27,9 +28,10 @@
 
 /* Begin PBXFileReference section */
 		792650DD1DD7542A006C2F9A /* SelectionItems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SelectionItems.plist; sourceTree = "<group>"; };
+		792650DF1DD76E35006C2F9A /* TitleScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleScene.swift; sourceTree = "<group>"; };
 		793C3DBF1DC4095100351D34 /* Sisyphus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sisyphus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		793C3DC21DC4095100351D34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		793C3DC41DC4095100351D34 /* SelectionScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SelectionScene.sks; sourceTree = "<group>"; };
+		793C3DC41DC4095100351D34 /* Scene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Scene.sks; sourceTree = "<group>"; };
 		793C3DC61DC4095100351D34 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		793C3DC81DC4095100351D34 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		793C3DCA1DC4095100351D34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,8 +81,9 @@
 				793C3DC21DC4095100351D34 /* AppDelegate.swift */,
 				796971F91DD3529E008375E4 /* Keys.swift */,
 				793C3DC81DC4095100351D34 /* Scene.swift */,
-				799DEEDC1DD74ABC00FD77EA /* GameScene.swift */,
+				792650DF1DD76E35006C2F9A /* TitleScene.swift */,
 				799DEEDA1DD749E800FD77EA /* SelectionScene.swift */,
+				799DEEDC1DD74ABC00FD77EA /* GameScene.swift */,
 				799DEED81DD6DC1800FD77EA /* Insect.swift */,
 				799DEED21DD6B8BE00FD77EA /* Mite.swift */,
 				799DEED41DD6BA4500FD77EA /* Fly.swift */,
@@ -88,7 +91,7 @@
 				793C3DCA1DC4095100351D34 /* ViewController.swift */,
 				799DEED61DD6BE0A00FD77EA /* Assets.xcassets */,
 				792650DD1DD7542A006C2F9A /* SelectionItems.plist */,
-				793C3DC41DC4095100351D34 /* SelectionScene.sks */,
+				793C3DC41DC4095100351D34 /* Scene.sks */,
 				793C3DC61DC4095100351D34 /* Actions.sks */,
 				793C3DCE1DC4095100351D34 /* Main.storyboard */,
 				793C3DD71DC4099300351D34 /* Computer Pixel-7.ttf */,
@@ -157,7 +160,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				793C3DC51DC4095100351D34 /* SelectionScene.sks in Resources */,
+				793C3DC51DC4095100351D34 /* Scene.sks in Resources */,
 				793C3DD81DC4099300351D34 /* Computer Pixel-7.ttf in Resources */,
 				792650DE1DD7542A006C2F9A /* SelectionItems.plist in Resources */,
 				793C3DC71DC4095100351D34 /* Actions.sks in Resources */,
@@ -183,6 +186,7 @@
 				796971FA1DD3529E008375E4 /* Keys.swift in Sources */,
 				793C3DC31DC4095100351D34 /* AppDelegate.swift in Sources */,
 				799DEED51DD6BA4500FD77EA /* Fly.swift in Sources */,
+				792650E01DD76E35006C2F9A /* TitleScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
