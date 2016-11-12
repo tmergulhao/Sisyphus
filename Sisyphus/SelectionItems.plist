@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>questions</key>
+	<array>
+		<dict>
+			<key>atlas</key>
+			<string>Weapon</string>
+			<key>value</key>
+			<string>¿Cuál usarías como arma?</string>
+			<key>images</key>
+			<array>
+				<string>pistol</string>
+				<string>pencil</string>
+				<string>lightsaber</string>
+			</array>
+		</dict>
+		<dict>
+			<key>atlas</key>
+			<string>Color</string>
+			<key>value</key>
+			<string>Escoger un color</string>
+			<key>images</key>
+			<array>
+				<string>blue</string>
+				<string>green</string>
+				<string>red</string>
+			</array>
+		</dict>
+		<dict>
+			<key>atlas</key>
+			<string>Shape</string>
+			<key>value</key>
+			<string>Escoger una figura</string>
+			<key>images</key>
+			<array>
+				<string>circle</string>
+				<string>square</string>
+				<string>triangle</string>
+			</array>
+		</dict>
+		<dict>
+			<key>atlas</key>
+			<string>Fruit</string>
+			<key>value</key>
+			<string>Escoger una fruta</string>
+			<key>images</key>
+			<array>
+				<string>circle</string>
+				<string>square</string>
+				<string>triangle</string>
+			</array>
+		</dict>
+		<dict>
+			<key>atlas</key>
+			<string>Fear</string>
+			<key>value</key>
+			<string>¿Cuál te da más miedo?</string>
+			<key>images</key>
+			<array>
+				<string>circle</string>
+				<string>square</string>
+				<string>triangle</string>
+			</array>
+		</dict>
+		<dict>
+			<key>atlas</key>
+			<string>Kill</string>
+			<key>value</key>
+			<string>¿A cuál matarías?</string>
+			<key>images</key>
+			<array>
+				<string>circle</string>
+				<string>square</string>
+				<string>triangle</string>
+			</array>
+		</dict>
+		<dict>
+			<key>atlas</key>
+			<string>Favorite</string>
+			<key>value</key>
+			<string>¿Cuál es tu favorito?</string>
+			<key>images</key>
+			<array>
+				<string>circle</string>
+				<string>square</string>
+				<string>triangle</string>
+			</array>
+		</dict>
+		<dict>
+			<key>atlas</key>
+			<string>Eat</string>
+			<key>value</key>
+			<string>¿Cuál te comerías?</string>
+			<key>images</key>
+			<array>
+				<string>circle</string>
+				<string>square</string>
+				<string>triangle</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

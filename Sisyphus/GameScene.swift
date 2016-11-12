@@ -2,7 +2,7 @@
 //  GameScene.swift
 //  Sisyphus
 //
-//  Created by Tiago Mergulhão on 28/10/16.
+//  Created by Tiago Mergulhão on 12/11/16.
 //  Copyright © 2016 Tiago Mergulhão. All rights reserved.
 //
 
@@ -14,22 +14,10 @@ typealias Degrees = CGFloat
 let π = CGFloat(M_PI)
 
 extension CGFloat {
-	var radians : CGFloat {
-		return π * self / 180.0
-	}
+	var radians : CGFloat { return π * self / 180.0 }
 }
 
-class GameScene: SKScene {
-
-	let fontName = "Computer Pixel-7"
-
-	var keys : Set<GameKeys> = []
-	var keysMask : UInt16 = 0
-
-	var entities : Array<GKEntity> = [GKEntity]()
-	var graphs : Dictionary<String, GKGraph> = [String : GKGraph]()
-
-    var label : SKLabelNode?
+class GameScene : Scene {
 
 	var cockroach : Cockroach?
 	var mite : Mite?
@@ -59,52 +47,32 @@ class GameScene: SKScene {
 		addChild(fly)
 
 	}
-    
-    override func sceneDidLoad() {
+
+	override func sceneDidLoad() {
 
 		backgroundColor = NSColor.white
 
 		addItems()
+	}
 
-		let label = SKLabelNode(fontNamed: fontName)
-
-		label.text = ""
-		label.fontColor = SKColor.black
-		label.fontSize = 100
-		label.horizontalAlignmentMode = .center
-		label.verticalAlignmentMode = .baseline
-
-		label.position = CGPoint(x: 0, y: frame.height/4)
-
-		self.label = label
-
-		self.addChild(label)
-    }
-
-	var previousTime : TimeInterval = 0
-
-    override func update(_ currentTime: TimeInterval) {
+	override func update(_ currentTime: TimeInterval) {
 
 		let rand : Bool = drand48() > 0.8
 		var speed : CGFloat = 60
 
-        if (previousTime == 0) {
-            previousTime = currentTime
-        }
+		if (previousTime == 0) {
+			previousTime = currentTime
+		}
 
 		let deltaTime = previousTime - currentTime
 
 		if keys.contains(.action) {
 			speed *= 2
 
-			label?.text = "Pressing spacebar"
-
 			cockroach?.state = .action
 			mite?.state = .action
 			fly?.state = .action
 		} else {
-			label?.text = ""
-
 			cockroach?.state = .idle
 			mite?.state = .idle
 			fly?.state = .idle
@@ -112,16 +80,16 @@ class GameScene: SKScene {
 
 		var _angle : Degrees?
 
-		switch keysMask & ~GameKeys.action.mask {
-		case GameKeys.combine([.down, .left, .right, .up]), GameKeys.combine([]): break
-		case GameKeys.combine([.left, .right, .up]), GameKeys.combine([.up]): _angle = 0
-		case GameKeys.combine([.down, .left, .up]), GameKeys.combine([.left]): _angle = 2 * 45
-		case GameKeys.combine([.down, .right, .up]), GameKeys.combine([.right]): _angle = -2 * 45
-		case GameKeys.combine([.left, .right, .down]), GameKeys.combine([.down]): _angle = -4 * 45
-		case GameKeys.combine([.left, .up]): _angle = 1 * 45
-		case GameKeys.combine([.left, .down]): _angle = 3 * 45
-		case GameKeys.combine([.right, .up]): _angle = -1 * 45
-		case GameKeys.combine([.right, .down]): _angle = -3 * 45
+		switch keysMask & ~Keys.action.mask {
+		case Keys.combine([.down, .left, .right, .up]), Keys.combine([]): break
+		case Keys.combine([.left, .right, .up]), Keys.up.mask: _angle = 0
+		case Keys.combine([.down, .left, .up]), Keys.left.mask: _angle = 2 * 45
+		case Keys.combine([.down, .right, .up]), Keys.right.mask: _angle = -2 * 45
+		case Keys.combine([.left, .right, .down]), Keys.down.mask: _angle = -4 * 45
+		case Keys.combine([.left, .up]): _angle = 1 * 45
+		case Keys.combine([.left, .down]): _angle = 3 * 45
+		case Keys.combine([.right, .up]): _angle = -1 * 45
+		case Keys.combine([.right, .down]): _angle = -3 * 45
 		default: break
 		}
 
@@ -138,10 +106,10 @@ class GameScene: SKScene {
 			fly?.run(compound)
 		}
 
-        for entity in self.entities {
-            entity.update(deltaTime: deltaTime)
-        }
+		for entity in self.entities {
+			entity.update(deltaTime: deltaTime)
+		}
 
-        previousTime = currentTime
-    }
+		previousTime = currentTime
+	}
 }
