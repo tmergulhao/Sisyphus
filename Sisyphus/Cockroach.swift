@@ -21,6 +21,16 @@ class Cockroach : Insect {
 	override func changeState(from before: InsectState, to after: InsectState) {
 		removeAllActions()
 
+		if after == .action {
+			let upscale = SKAction.scale(by: 2, duration: 0.5)
+			run(upscale)
+		}
+
+		if before == .action {
+			let downscale = SKAction.scale(by: 0.5, duration: 0.5)
+			run(downscale)
+		}
+
 		switch after {
 		case .action: run(Cockroach.action)
 		case .moving: run(Cockroach.action)
