@@ -83,9 +83,9 @@
 			<string>¿Cuál es tu favorito?</string>
 			<key>images</key>
 			<array>
-				<string>circle</string>
-				<string>square</string>
-				<string>triangle</string>
+				<string>cat</string>
+				<string>earth</string>
+				<string>clover</string>
 			</array>
 		</dict>
 		<dict>
@@ -95,9 +95,9 @@
 			<string>¿Cuál te comerías?</string>
 			<key>images</key>
 			<array>
-				<string>circle</string>
-				<string>square</string>
-				<string>triangle</string>
+				<string>pizza</string>
+				<string>watermelon</string>
+				<string>worm</string>
 			</array>
 		</dict>
 	</array>
