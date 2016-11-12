@@ -35,29 +35,42 @@ class Scene: SKScene {
 		previousTime = currentTime
     }
 
-	var keys : Set<Keys> = []
-	var keyGuard : Set<Keys> = []
-	var keysMask : UInt16 = 0
+	var directional : Directional = Directional.none
+	var directionalGuard : Set<Directional> = []
+
+	var action : Action = Action.none
+	var actionGuard : Set<Action> = []
 
 	override func keyDown(with theEvent: NSEvent) {
 
-		let key = theEvent.characters?.utf16.first ?? 0
+		let keyStroke = theEvent.characters?.utf16.first ?? 0
 
-		guard let validKey = Keys.validate(rawValue: key) else { return }
+		if let key = Directional.validate(keyStroke: keyStroke) {
+			directional.insert(key)
+			return
+		}
 
-		keys.insert(validKey)
-		keysMask |= validKey.mask
+		if let key = Action.validate(keyStroke: keyStroke) {
+			action.insert(key)
+			return
+		}
 	}
 
 	override func keyUp(with theEvent: NSEvent) {
 
-		let key = theEvent.characters?.utf16.first ?? 0
+		let keyStroke = theEvent.characters?.utf16.first ?? 0
 
-		guard let validKey = Keys.validate(rawValue: key) else { return }
+		if let key = Directional.validate(keyStroke: keyStroke) {
+			directional.remove(key)
+			directionalGuard.remove(key)
+			return
+		}
 
-		keys.remove(validKey)
-		keyGuard.remove(validKey)
-		keysMask &= ~validKey.mask
+		if let key = Action.validate(keyStroke: keyStroke) {
+			action.remove(key)
+			actionGuard.remove(key)
+			return
+		}
 	}
 
 }

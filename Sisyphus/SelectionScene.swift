@@ -75,9 +75,9 @@ class SelectionScene : Scene {
 
 	override func sceneDidLoad() {
 
-		keyGuard.remove(.action)
-		keyGuard.remove(.left)
-		keyGuard.remove(.right)
+		actionGuard.remove(.primary)
+		directionalGuard.remove(.left)
+		directionalGuard.remove(.right)
 
 		SelectionScene.count += 1
 
@@ -128,19 +128,18 @@ class SelectionScene : Scene {
 
 		let deltaTime = previousTime - currentTime
 
-		switch keysMask & ~Keys.combine([.down, .up]) {
-		case Keys.combine([.left, .right]), Keys.combine([]): break
-		case Keys.right.mask where !keyGuard.contains(.right):
+		switch directional {
+		case Directional.right where !directionalGuard.contains(.right):
 
-			keyGuard.insert(.right)
+			directional.insert(.right)
 			if let newSelection = SelectionState(rawValue: selection.rawValue + 1) {
 				selection = newSelection
 			}
 			break
 
-		case Keys.left.mask where !keyGuard.contains(.left):
+		case Directional.left where !directionalGuard.contains(.left):
 
-			keyGuard.insert(.left)
+			directionalGuard.insert(.left)
 			if let newSelection = SelectionState(rawValue: selection.rawValue - 1) {
 				selection = newSelection
 			}
@@ -149,16 +148,16 @@ class SelectionScene : Scene {
 		default: break
 		}
 
-		if keys.contains(.action) && !keyGuard.contains(.action) {
+		if action.contains(.primary) && !actionGuard.contains(.primary) {
 
-			keyGuard.insert(.action)
+			actionGuard.insert(.primary)
 
 			let transition = SKTransition.crossFade(withDuration: 1)
 
 			let scene = SelectionScene.count > 3 ? GameScene(size: size) : SelectionScene(size: size)
 
 			scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-			scene.keyGuard = keyGuard
+			scene.actionGuard = actionGuard
 
 			transition.pausesOutgoingScene = false
 

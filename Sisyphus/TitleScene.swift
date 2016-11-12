@@ -48,8 +48,8 @@ class TitleScene : Scene {
 
 		let deltaTime = previousTime - currentTime
 
-		if keys.contains(.action) && !keyGuard.contains(.action) {
-			keyGuard.insert(.action)
+		if action.contains(.primary) && !actionGuard.contains(.primary) {
+			actionGuard.insert(.primary)
 
 			label.removeAllActions()
 
@@ -64,7 +64,7 @@ class TitleScene : Scene {
 
 			let scene = SelectionScene(size: size)
 
-			scene.keyGuard = keyGuard
+			scene.actionGuard = actionGuard
 			scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
 
 			transition.pausesOutgoingScene = false

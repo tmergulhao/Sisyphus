@@ -8,32 +8,49 @@
 
 import SpriteKit
 
-enum Keys : UInt16 {
-	case left = 0, right = 1, up = 2, down = 3, action = 4, run = 5, none = 14
+struct Directional : OptionSet, Hashable {
 
-	var mask : UInt16 {
-		return 1 << rawValue
+	let rawValue : Int
+	var hashValue: Int { return rawValue }
+
+	static let none		= Directional(rawValue: 0)
+	static let up		= Directional(rawValue: 1 << 0)
+	static let down		= Directional(rawValue: 1 << 1)
+	static let left		= Directional(rawValue: 1 << 2)
+	static let right	= Directional(rawValue: 1 << 3)
+
+	static let upLeft : Directional		= [.up, .left]
+	static let upRight : Directional	= [.up, .right]
+	static let downLeft : Directional	= [.down, .left]
+	static let downRight : Directional	= [.down, .right]
+
+	static func validate (keyStroke : UInt16) -> Directional? {
+		switch keyStroke {
+		case UInt16(NSRightArrowFunctionKey): return Directional.right
+		case UInt16(NSLeftArrowFunctionKey): return Directional.left
+		case UInt16(NSDownArrowFunctionKey): return Directional.down
+		case UInt16(NSUpArrowFunctionKey): return Directional.up
+		default: return nil
+		}
 	}
 
-	static func combine (_ elements : Array<Keys>) -> UInt16 {
-		return elements
-			.map { 1 << $0.rawValue }
-			.reduce(0) { $0 | $1 }
-	}
-	static func combine (_ elements : Set<Keys>) -> UInt16 {
-		return elements
-			.map { 1 << $0.rawValue }
-			.reduce(0) { $0 | $1 }
-	}
+}
 
-	static func validate (rawValue : UInt16) -> Keys? {
-		switch rawValue {
-		case " ": return .action
-		case "r": return .run
-		case UInt16(NSRightArrowFunctionKey): return .right
-		case UInt16(NSLeftArrowFunctionKey): return .left
-		case UInt16(NSDownArrowFunctionKey): return .down
-		case UInt16(NSUpArrowFunctionKey): return .up
+struct Action : OptionSet, Hashable {
+
+	let rawValue : Int
+	var hashValue: Int { return rawValue }
+
+	static let none			= Action(rawValue: 0)
+	static let primary		= Action(rawValue: 1 << 0)
+	static let secondary	= Action(rawValue: 1 << 1)
+
+	static let combined : Action = [.primary, .secondary]
+
+	static func validate (keyStroke : UInt16) -> Action? {
+		switch keyStroke {
+		case " ": return Action.primary
+		case "r": return Action.secondary
 		default: return nil
 		}
 	}

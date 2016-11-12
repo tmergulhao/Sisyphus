@@ -53,13 +53,12 @@ class Insect : SKSpriteNode {
 		}
 	}
 
-	func act(onKeys keys : Set<Keys>, keyGuard : Set<Keys>, interval : TimeInterval) {
+	func act(onDirectional directional : Directional, directionalGuard : Set<Directional>, action : Action, actionGuard : Set<Action>, interval : TimeInterval) {
 
 		let rand : Bool = drand48() > 0.8
 		var speed : CGFloat = 60
-		let keysMask : UInt16 = Keys.combine(keys)
 
-		if keys.contains(.action) {
+		if action.contains(.primary) {
 			speed *= 3
 
 			state = .action
@@ -69,17 +68,16 @@ class Insect : SKSpriteNode {
 
 		var _angle : Degrees?
 
-		switch keysMask & ~Keys.action.mask {
-		case Keys.combine([.down, .left, .right, .up]), Keys.combine([]): break
-		case Keys.combine([.left, .right, .up]), Keys.up.mask: _angle = 0
-		case Keys.combine([.down, .left, .up]), Keys.left.mask: _angle = 2 * 45
-		case Keys.combine([.down, .right, .up]), Keys.right.mask: _angle = -2 * 45
-		case Keys.combine([.left, .right, .down]), Keys.down.mask: _angle = -4 * 45
-		case Keys.combine([.left, .up]): _angle = 1 * 45
-		case Keys.combine([.left, .down]): _angle = 3 * 45
-		case Keys.combine([.right, .up]): _angle = -1 * 45
-		case Keys.combine([.right, .down]): _angle = -3 * 45
-		default: break
+		switch directional {
+		case Directional.up :			_angle = 0
+		case Directional.down :			_angle = -4 * 45
+		case Directional.left :			_angle = 2 * 45
+		case Directional.right :		_angle = -2 * 45
+		case Directional.upLeft :		_angle = 1 * 45
+		case Directional.upRight :		_angle = -1 * 45
+		case Directional.downLeft :		_angle = 3 * 45
+		case Directional.downRight :	_angle = -3 * 45
+		default : break
 		}
 
 		if let angle = _angle {

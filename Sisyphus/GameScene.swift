@@ -52,8 +52,8 @@ class GameScene : Scene {
 
 		let deltaTime = previousTime - currentTime
 
-		insect.act(onKeys : keys, keyGuard : keyGuard, interval : deltaTime)
-
+		insect.act(onDirectional: directional, directionalGuard: directionalGuard, action : action, actionGuard : actionGuard, interval: deltaTime)
+	
 		for entity in self.entities {
 			entity.update(deltaTime: deltaTime)
 		}
