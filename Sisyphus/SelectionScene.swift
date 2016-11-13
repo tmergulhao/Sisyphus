@@ -75,6 +75,8 @@ class SelectionScene : Scene {
 
 	override func sceneDidLoad() {
 
+		onScreenControls(directional: [.left, .right], action: [.primary])
+
 		actionGuard.remove(.primary)
 		directionalGuard.remove(.left)
 		directionalGuard.remove(.right)

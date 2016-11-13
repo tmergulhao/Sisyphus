@@ -16,6 +16,8 @@ class TitleScene : Scene {
 
 	override func sceneDidLoad() {
 
+		onScreenControls(directional: [], action: [.primary])
+
 		backgroundColor = NSColor.white
 
 		let disappear = SKAction.fadeAlpha(to: 0, duration: 0.5)

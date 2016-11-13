@@ -23,6 +23,8 @@ class GameScene : Scene {
 
 	override func sceneDidLoad() {
 
+		onScreenControls(directional: [.up, .down, .left, .right], action: [.primary])
+
 		backgroundColor = NSColor.white
 
 		let index = Int(arc4random_uniform(UInt32(3)))
