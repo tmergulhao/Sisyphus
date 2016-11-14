@@ -9,14 +9,6 @@
 import SpriteKit
 import GameplayKit
 
-typealias Degrees = CGFloat
-
-let π = CGFloat(M_PI)
-
-extension CGFloat {
-	var radians : CGFloat { return π * self / 180.0 }
-}
-
 class GameScene : Scene {
 
 	var insect : Insect!
@@ -41,6 +33,7 @@ class GameScene : Scene {
 		}
 
 		insect.position = CGPoint(x: 0, y: 0)
+
 		addChild(insect)
 
 		super.sceneDidLoad()
@@ -55,6 +48,8 @@ class GameScene : Scene {
 		let deltaTime = previousTime - currentTime
 
 		insect.act(onDirectional: directional, directionalGuard: directionalGuard, action : action, actionGuard : actionGuard, interval: deltaTime)
+
+		insect.states.update(deltaTime: deltaTime)
 	
 		for entity in self.entities {
 			entity.update(deltaTime: deltaTime)

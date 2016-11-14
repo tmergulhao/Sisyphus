@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7913C6F11DD95299002CA6F3 /* IdleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7913C6F01DD95299002CA6F3 /* IdleState.swift */; };
 		792650DE1DD7542A006C2F9A /* SelectionItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 792650DD1DD7542A006C2F9A /* SelectionItems.plist */; };
 		792650E01DD76E35006C2F9A /* TitleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792650DF1DD76E35006C2F9A /* TitleScene.swift */; };
 		793C3DC31DC4095100351D34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793C3DC21DC4095100351D34 /* AppDelegate.swift */; };
@@ -24,9 +25,12 @@
 		799DEED91DD6DC1800FD77EA /* Insect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799DEED81DD6DC1800FD77EA /* Insect.swift */; };
 		799DEEDB1DD749E800FD77EA /* SelectionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799DEEDA1DD749E800FD77EA /* SelectionScene.swift */; };
 		799DEEDD1DD74ABC00FD77EA /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799DEEDC1DD74ABC00FD77EA /* GameScene.swift */; };
+		79D5149E1DDA0A1E0078B04D /* FlyingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D5149D1DDA0A1E0078B04D /* FlyingState.swift */; };
+		79D514A01DDA0A2D0078B04D /* JumpingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D5149F1DDA0A2D0078B04D /* JumpingState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7913C6F01DD95299002CA6F3 /* IdleState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdleState.swift; sourceTree = "<group>"; };
 		792650DD1DD7542A006C2F9A /* SelectionItems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SelectionItems.plist; sourceTree = "<group>"; };
 		792650DF1DD76E35006C2F9A /* TitleScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleScene.swift; sourceTree = "<group>"; };
 		793C3DBF1DC4095100351D34 /* Sisyphus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sisyphus.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +50,8 @@
 		799DEED81DD6DC1800FD77EA /* Insect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Insect.swift; sourceTree = "<group>"; };
 		799DEEDA1DD749E800FD77EA /* SelectionScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionScene.swift; sourceTree = "<group>"; };
 		799DEEDC1DD74ABC00FD77EA /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		79D5149D1DDA0A1E0078B04D /* FlyingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlyingState.swift; sourceTree = "<group>"; };
+		79D5149F1DDA0A2D0078B04D /* JumpingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JumpingState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,16 +85,17 @@
 			isa = PBXGroup;
 			children = (
 				793C3DC21DC4095100351D34 /* AppDelegate.swift */,
+				793C3DCA1DC4095100351D34 /* ViewController.swift */,
 				796971F91DD3529E008375E4 /* Keys.swift */,
 				793C3DC81DC4095100351D34 /* Scene.swift */,
 				792650DF1DD76E35006C2F9A /* TitleScene.swift */,
 				799DEEDA1DD749E800FD77EA /* SelectionScene.swift */,
 				799DEEDC1DD74ABC00FD77EA /* GameScene.swift */,
+				79D5149C1DDA0A060078B04D /* Insect states */,
 				799DEED81DD6DC1800FD77EA /* Insect.swift */,
 				799DEED21DD6B8BE00FD77EA /* Mite.swift */,
 				799DEED41DD6BA4500FD77EA /* Fly.swift */,
 				799DEED01DD643EB00FD77EA /* Cockroach.swift */,
-				793C3DCA1DC4095100351D34 /* ViewController.swift */,
 				799DEED61DD6BE0A00FD77EA /* Assets.xcassets */,
 				792650DD1DD7542A006C2F9A /* SelectionItems.plist */,
 				793C3DC41DC4095100351D34 /* Scene.sks */,
@@ -98,6 +105,16 @@
 				793C3DD11DC4095100351D34 /* Info.plist */,
 			);
 			path = Sisyphus;
+			sourceTree = "<group>";
+		};
+		79D5149C1DDA0A060078B04D /* Insect states */ = {
+			isa = PBXGroup;
+			children = (
+				7913C6F01DD95299002CA6F3 /* IdleState.swift */,
+				79D5149D1DDA0A1E0078B04D /* FlyingState.swift */,
+				79D5149F1DDA0A2D0078B04D /* JumpingState.swift */,
+			);
+			name = "Insect states";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,10 +200,13 @@
 				799DEEDD1DD74ABC00FD77EA /* GameScene.swift in Sources */,
 				799DEED91DD6DC1800FD77EA /* Insect.swift in Sources */,
 				799DEED31DD6B8BE00FD77EA /* Mite.swift in Sources */,
+				79D5149E1DDA0A1E0078B04D /* FlyingState.swift in Sources */,
 				796971FA1DD3529E008375E4 /* Keys.swift in Sources */,
 				793C3DC31DC4095100351D34 /* AppDelegate.swift in Sources */,
 				799DEED51DD6BA4500FD77EA /* Fly.swift in Sources */,
+				79D514A01DDA0A2D0078B04D /* JumpingState.swift in Sources */,
 				792650E01DD76E35006C2F9A /* TitleScene.swift in Sources */,
+				7913C6F11DD95299002CA6F3 /* IdleState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

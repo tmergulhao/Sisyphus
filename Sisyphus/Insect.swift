@@ -7,23 +7,30 @@
 //
 
 import SpriteKit
+import GameplayKit
 
-enum InsectState {
-	case none
-	case action
-	case moving
-	case idle
+typealias Degrees = CGFloat
+
+let π = CGFloat(M_PI)
+
+extension CGFloat {
+	var radians : CGFloat { return π * self / 180.0 }
 }
 
 class Insect : SKSpriteNode {
+
+	var idle : SKAction { return SKAction() }
+	var action : SKAction { return SKAction() }
 
 	static var atlasses : Dictionary<String,SKTextureAtlas> = [:]
 
 	static var atlas = { return SKTextureAtlas(named: className()) }()
 
+	var states : GKStateMachine!
+
 	init () {
 		let size = CGSize(width: 128, height: 128)
-		super.init(texture: nil, color: NSColor.clear, size: size)
+		super.init(texture: nil, color: NSColor.black, size: size)
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -42,28 +49,15 @@ class Insect : SKSpriteNode {
 		return SKAction.repeatForever(action)
 	}
 
-	fileprivate var lastState : InsectState = .none
-	var state : InsectState {
-		get { return lastState }
-		set(newValue) {
-			if lastState != newValue {
-				changeState(from: lastState, to: newValue)
-				lastState = newValue
-			}
-		}
-	}
+	var isActing : Bool = false
+	var movementSpeed : CGFloat = 60
 
 	func act(onDirectional directional : Directional, directionalGuard : Set<Directional>, action : Action, actionGuard : Set<Action>, interval : TimeInterval) {
 
-		let rand : Bool = drand48() > 0.8
-		var speed : CGFloat = 60
-
 		if action.contains(.primary) {
-			speed *= 3
-
-			state = .action
+			isActing = true
 		} else {
-			state = .idle
+			isActing = false
 		}
 
 		var _angle : Degrees?
@@ -81,8 +75,9 @@ class Insect : SKSpriteNode {
 		}
 
 		if let angle = _angle {
+			let rand : Bool = drand48() > 0.8
 			let time = CGFloat(interval)
-			let direction = CGVector(dx: speed * time * sin(angle.radians), dy: speed * time * -cos(angle.radians))
+			let direction = CGVector(dx: movementSpeed * time * sin(angle.radians), dy: movementSpeed * time * -cos(angle.radians))
 
 			let rotate = SKAction.rotate(toAngle: angle.radians, duration: 0.2, shortestUnitArc: rand)
 			let move = SKAction.move(by: direction, duration: 0.2)
@@ -91,6 +86,4 @@ class Insect : SKSpriteNode {
 			run(compound)
 		}
 	}
-
-	func changeState (from before : InsectState, to after : InsectState) {}
 }
