@@ -12,36 +12,28 @@ import GameplayKit
 
 class ViewController: NSViewController {
 
-    @IBOutlet var skView: SKView!
+    @IBOutlet var sceneView : SKView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
-        // including entities and graphs.
-        if let scene = GKScene(fileNamed: "Scene") {
-            
-            // Get the SKScene from the loaded GKScene
-            if let sceneNode = scene.rootNode as! TitleScene? {
-                
-                // Copy gameplay related content over to the scene
-                sceneNode.entities = scene.entities
-                sceneNode.graphs = scene.graphs
-                
-                // Set the scale mode to scale to fit the window
-                sceneNode.scaleMode = .aspectFill
-                
-                // Present the scene
-                if let view = self.skView {
-                    view.presentScene(sceneNode)
-                    
-                    view.ignoresSiblingOrder = true
-                    
-                    view.showsFPS = true
-                    view.showsNodeCount = true
-                }
-            }
-        }
+
+		guard let scene = GKScene(fileNamed: "Scene") else { fatalError("No scene file on bundle") }
+
+		guard let sceneNode = scene.rootNode as? TitleScene else { fatalError("Scene node does not match given class") }
+			
+		sceneNode.entities = scene.entities
+		sceneNode.graphs = scene.graphs
+		
+		sceneNode.scaleMode = .aspectFill
+
+		guard let view = self.sceneView else { fatalError("Scene View does not referenced on Storyboard") }
+		
+		view.presentScene(sceneNode)
+
+		view.ignoresSiblingOrder = true
+
+		view.showsFPS = true
+		view.showsNodeCount = true
     }
 }
 
