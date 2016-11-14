@@ -19,18 +19,7 @@ class GameScene : Scene {
 
 		backgroundColor = NSColor.white
 
-		let index = Int(arc4random_uniform(UInt32(3)))
-
-		switch index {
-		case 1:
-			insect = Cockroach()
-		case 2:
-			insect = Mite()
-		case 3:
-			insect = Fly()
-		default:
-			insect = Fly()
-		}
+		insect = Insect.randomInsect()
 
 		insect.position = CGPoint(x: 0, y: 0)
 

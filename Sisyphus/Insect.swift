@@ -26,6 +26,22 @@ class Insect : SKSpriteNode {
 
 	static var atlas = { return SKTextureAtlas(named: className()) }()
 
+	static func randomInsect () -> Insect {
+
+		let index = Int(arc4random_uniform(UInt32(3)))
+
+		switch index {
+		case 0:
+			return Cockroach()
+		case 1:
+			return Mite()
+		case 2:
+			fallthrough
+		default:
+			return Fly()
+		}
+	}
+
 	var states : GKStateMachine!
 
 	init () {
