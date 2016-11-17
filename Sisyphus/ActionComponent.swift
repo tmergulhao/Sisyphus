@@ -42,7 +42,7 @@ class ActionComponent : GKComponent {
 				states.append(state)
 				animation[state] = action
 			case .flying(let action):
-				let state = JumpingState(self)
+				let state = FlyingState(self)
 				states.append(state)
 				animation[state] = action
 			case .jumping(let action):
