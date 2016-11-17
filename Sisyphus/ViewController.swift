@@ -17,6 +17,8 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+		view.layer?.backgroundColor = .white
+
 		guard let scene = GKScene(fileNamed: "Scene") else { fatalError("No scene file on bundle") }
 
 		guard let sceneNode = scene.rootNode as? TitleScene else { fatalError("Scene node does not match given class") }

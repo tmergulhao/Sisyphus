@@ -83,8 +83,6 @@ class SelectionScene : Scene {
 
 		SelectionScene.count += 1
 
-		backgroundColor = NSColor.white
-
 		let count = SelectionScene.questions.count
 		let index = Int(arc4random_uniform(UInt32(count)))
 

@@ -15,7 +15,7 @@ class GameScene : Scene {
 
 		onScreenControls(directional: [.up, .down, .left, .right], action: [.primary])
 
-		backgroundColor = NSColor.white
+		backgroundColor = .white
 
 		let entity : GKEntity!
 

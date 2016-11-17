@@ -18,8 +18,6 @@ class TitleScene : Scene {
 
 		onScreenControls(directional: [], action: [.primary])
 
-		backgroundColor = NSColor.white
-
 		let disappear = SKAction.fadeAlpha(to: 0, duration: 0.5)
 		let appear = SKAction.fadeAlpha(to: 1, duration: 0.5)
 		let disappearAndAppear = SKAction.sequence([disappear, appear])
