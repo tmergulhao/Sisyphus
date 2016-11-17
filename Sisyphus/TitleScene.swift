@@ -38,17 +38,9 @@ class TitleScene : Scene {
 		label.run(blink)
 
 		addChild(label)
-
-		super.sceneDidLoad()
 	}
 
 	override func update(_ currentTime: TimeInterval) {
-
-		if (previousTime == 0) {
-			previousTime = currentTime
-		}
-
-		let deltaTime = previousTime - currentTime
 
 		if action.contains(.primary) && !actionGuard.contains(.primary) {
 			actionGuard.insert(.primary)
@@ -73,11 +65,5 @@ class TitleScene : Scene {
 
 			view?.presentScene(scene, transition: transition)
 		}
-
-		for entity in self.entities {
-			entity.update(deltaTime: deltaTime)
-		}
-		
-		previousTime = currentTime
 	}
 }

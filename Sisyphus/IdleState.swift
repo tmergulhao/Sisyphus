@@ -10,31 +10,31 @@ import GameplayKit
 
 class IdleState : GKState {
 
-	unowned var insect : Insect
+	unowned var action : ActionComponent
 
-	init(_ insect : Insect) {
-		self.insect = insect
+	var entity : GKEntity { return action.entity! }
+
+	var movement : MovementComponent?
+	var render : RenderComponent?
+
+	init(_ action : ActionComponent) {
+
+		self.action = action
+
+		super.init()
+
+		movement = entity.component(ofType: MovementComponent.self)
+		render = entity.component(ofType: RenderComponent.self)
 	}
 
 	override func isValidNextState(_ stateClass: AnyClass) -> Bool {
-		switch stateClass {
-		case is FlyingState.Type, is JumpingState.Type: return true
-		default: return false
-		}
+
+		return true
 	}
 
 	override func didEnter(from previousState: GKState?) {
-		insect.movementSpeed = 60
-		insect.run(insect.idle)
-	}
 
-	override func willExit(to nextState: GKState) {}
-
-	override func update(deltaTime seconds: TimeInterval) {
-
-		if insect.isActing {
-			stateMachine?.enter(FlyingState.self)
-			stateMachine?.enter(JumpingState.self)
-		}
+		movement?.speed = 60
+		render?.spriteNode?.run(action.animation[self]!)
 	}
 }

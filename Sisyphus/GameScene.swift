@@ -11,22 +11,33 @@ import GameplayKit
 
 class GameScene : Scene {
 
-	var insect : Insect!
-
 	override func sceneDidLoad() {
 
 		onScreenControls(directional: [.up, .down, .left, .right], action: [.primary])
 
 		backgroundColor = NSColor.white
 
-		insect = Insect.randomInsect()
+		let entity : GKEntity!
 
-		insect.position = CGPoint(x: 0, y: 0)
+		let index = Int(arc4random_uniform(UInt32(3)))
+	
+		switch index {
+		case 0: entity = MiteEntity()
+		case 1: entity = FlyEntity()
+		case 2: fallthrough
+		default: entity = CockroachEntity()
+		}
 
-		addChild(insect)
+		entities.append(entity)
 
-		super.sceneDidLoad()
+		guard let node = entity.component(ofType: RenderComponent.self)?.spriteNode else {
+			fatalError("No sprite node on RenderComponent")
+		}
+
+		addChild(node)
 	}
+
+	var previousTime : TimeInterval = 0
 
 	override func update(_ currentTime: TimeInterval) {
 
@@ -36,11 +47,20 @@ class GameScene : Scene {
 
 		let deltaTime = previousTime - currentTime
 
-		insect.act(onDirectional: directional, directionalGuard: directionalGuard, action : action, actionGuard : actionGuard, interval: deltaTime)
+		for entity in entities {
+			
+			if let movementComponent = entity.component(ofType: MovementComponent.self) {
 
-		insect.states.update(deltaTime: deltaTime)
-	
-		for entity in self.entities {
+				movementComponent.directional = directional
+				movementComponent.directionalGuard = directionalGuard
+			}
+
+			if let actionComponent = entity.component(ofType: ActionComponent.self) {
+
+				actionComponent.action = action
+				actionComponent.actionGuard = actionGuard
+			}
+
 			entity.update(deltaTime: deltaTime)
 		}
 

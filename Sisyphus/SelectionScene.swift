@@ -124,12 +124,6 @@ class SelectionScene : Scene {
 
 	override func update(_ currentTime: TimeInterval) {
 
-		if (previousTime == 0) {
-			previousTime = currentTime
-		}
-
-		let deltaTime = previousTime - currentTime
-
 		switch directional {
 
 		case Directional.right where !directionalGuard.contains(.right):
@@ -166,11 +160,5 @@ class SelectionScene : Scene {
 
 			view?.presentScene(scene, transition: transition)
 		}
-
-		for entity in self.entities {
-			entity.update(deltaTime: deltaTime)
-		}
-		
-		previousTime = currentTime
 	}
 }
