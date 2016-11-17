@@ -16,8 +16,6 @@ class SelectionScene : Scene {
 
 	static var count = 0
 
-	var label : SKLabelNode!
-
 	static var questions : Array<Dictionary<String,AnyObject>> = {
 
 		guard let path = Bundle.main.path(forResource: "SelectionItems", ofType: "plist"),
@@ -27,14 +25,13 @@ class SelectionScene : Scene {
 		}
 
 		return questions
-
 	}()
 
 	func addLabel (forQuestion question : Dictionary<String,AnyObject>) {
 
 		let value = question["value"] as! String
 
-		label = SKLabelNode(fontNamed: fontName)
+		let label = SKLabelNode(fontNamed: fontName)
 
 		label.text = value
 		label.fontColor = SKColor.black
@@ -76,10 +73,6 @@ class SelectionScene : Scene {
 
 		onScreenControls(directional: [.left, .right], action: [.primary])
 
-		actionGuard.remove(.primary)
-		directionalGuard.remove(.left)
-		directionalGuard.remove(.right)
-
 		SelectionScene.count += 1
 
 		let count = SelectionScene.questions.count
@@ -92,6 +85,8 @@ class SelectionScene : Scene {
 		addLabel(forQuestion : question)
 
 		selection = .center
+
+		super.sceneDidLoad()
 	}
 
 	fileprivate var lastSelection : SelectionState = .none
@@ -121,41 +116,35 @@ class SelectionScene : Scene {
 
 	override func update(_ currentTime: TimeInterval) {
 
-		switch directional {
+		if (directional.contains(.right), directionalGuard.contains(.right)) == (true,false) {
 
-		case Directional.right where !directionalGuard.contains(.right):
-
-			directional.insert(.right)
 			if let newSelection = SelectionState(rawValue: selection.rawValue + 1) {
 				selection = newSelection
 			}
-			break
+		}
 
-		case Directional.left where !directionalGuard.contains(.left):
+		if (directional.contains(.left), directionalGuard.contains(.left)) == (true,false) {
 
-			directionalGuard.insert(.left)
 			if let newSelection = SelectionState(rawValue: selection.rawValue - 1) {
 				selection = newSelection
 			}
-			break
-
-		default: break
 		}
 
 		if action.contains(.primary) && !actionGuard.contains(.primary) {
-
-			actionGuard.insert(.primary)
 
 			let transition = SKTransition.crossFade(withDuration: 1)
 
 			let scene = SelectionScene.count > 2 ? GameScene(size: size) : SelectionScene(size: size)
 
 			scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+
 			scene.actionGuard = actionGuard
 
 			transition.pausesOutgoingScene = false
 
 			view?.presentScene(scene, transition: transition)
 		}
+
+		super.update(currentTime)
 	}
 }

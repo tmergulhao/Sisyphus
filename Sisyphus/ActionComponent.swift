@@ -21,7 +21,7 @@ enum AnimationState {
 class ActionComponent : GKComponent {
 
 	var action : Action = .none
-	var actionGuard : Set<Action> = []
+	var actionGuard : Action = .none
 
 	var stateMachine : GKStateMachine!
 

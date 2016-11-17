@@ -16,11 +16,20 @@ class Scene: SKScene {
 
 	let fontName = "Computer Pixel-7"
 
-	var directional : Directional = Directional.none
-	var directionalGuard : Set<Directional> = []
+	var directional : Directional = .none
+	var directionalGuard : Directional = .none
 
-	var action : Action = Action.none
-	var actionGuard : Set<Action> = []
+	var action : Action = .none
+	var actionGuard : Action = .none
+
+	override func sceneDidLoad() {
+		backgroundColor = .white
+	}
+
+	override func update(_ currentTime: TimeInterval) {
+		directionalGuard = directional
+		actionGuard = action
+	}
 
 	override func keyDown(with theEvent: NSEvent) {
 
@@ -28,9 +37,6 @@ class Scene: SKScene {
 
 		if let key = Directional.validate(keyStroke: keyStroke) {
 
-			if directional.contains(key) {
-				directionalGuard.insert(key)
-			}
 			directional.insert(key)
 			enlargeKey(key)
 			return
@@ -38,9 +44,6 @@ class Scene: SKScene {
 
 		if let key = Action.validate(keyStroke: keyStroke) {
 
-			if action.contains(key) {
-				actionGuard.insert(key)
-			}
 			action.insert(key)
 			enlargeKey(key)
 			return

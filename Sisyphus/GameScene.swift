@@ -15,8 +15,6 @@ class GameScene : Scene {
 
 		onScreenControls(directional: [.up, .down, .left, .right], action: [.primary])
 
-		backgroundColor = .white
-
 		let entity : GKEntity!
 
 		let index = Int(arc4random_uniform(UInt32(3)))
@@ -35,6 +33,8 @@ class GameScene : Scene {
 		}
 
 		addChild(node)
+
+		super.sceneDidLoad()
 	}
 
 	var previousTime : TimeInterval = 0
@@ -65,5 +65,7 @@ class GameScene : Scene {
 		}
 
 		previousTime = currentTime
+
+		super.update(currentTime)
 	}
 }

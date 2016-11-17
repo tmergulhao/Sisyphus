@@ -10,8 +10,6 @@ import SpriteKit
 
 class TitleScene : Scene {
 
-	static var count = 0
-
 	var label : SKLabelNode!
 
 	override func sceneDidLoad() {
@@ -26,22 +24,22 @@ class TitleScene : Scene {
 		label = SKLabelNode(fontNamed: fontName)
 
 		label.text = "press space to start"
-		label.fontColor = SKColor.black
+		label.fontColor = .black
 		label.fontSize = 70
 		label.horizontalAlignmentMode = .center
 		label.verticalAlignmentMode = .baseline
-
 		label.position = CGPoint(x: 0, y: -frame.height/4)
 
 		label.run(blink)
 
 		addChild(label)
+
+		super.sceneDidLoad()
 	}
 
 	override func update(_ currentTime: TimeInterval) {
 
-		if action.contains(.primary) && !actionGuard.contains(.primary) {
-			actionGuard.insert(.primary)
+		if action.contains(.primary) {
 
 			label.removeAllActions()
 
@@ -56,12 +54,15 @@ class TitleScene : Scene {
 
 			let scene = SelectionScene(size: size)
 
-			scene.actionGuard = actionGuard
 			scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+
+			scene.actionGuard = actionGuard
 
 			transition.pausesOutgoingScene = false
 
 			view?.presentScene(scene, transition: transition)
 		}
+
+		super.update(currentTime)
 	}
 }

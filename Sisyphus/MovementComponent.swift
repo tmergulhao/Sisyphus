@@ -22,7 +22,7 @@ class MovementComponent : GKComponent {
 	@GKInspectable var speed : CGFloat = 60
 
 	var directional : Directional = .none
-	var directionalGuard : Set<Directional> = []
+	var directionalGuard : Directional = .none
 
 	var movementAngle : Degrees? {
 
