@@ -89,15 +89,6 @@ class ActionComponent : GKComponent {
 		default: break
 		}
 
-//		if action.contains(.primary) {
-//
-//			stateMachine.enter(FlyingState.self)
-//			stateMachine.enter(JumpingState.self)
-//		} else if stateMachine.currentState is FlyingState {
-//
-//			stateMachine.enter(IdleState.self)
-//		}
-
 		stateMachine.update(deltaTime: seconds)
 	}
 }
