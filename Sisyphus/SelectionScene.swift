@@ -20,14 +20,13 @@ class SelectionScene : Scene {
 
 	static var questions : Array<Dictionary<String,AnyObject>> = {
 
-		if  let path = Bundle.main.path(forResource: "SelectionItems", ofType: "plist"),
+		guard let path = Bundle.main.path(forResource: "SelectionItems", ofType: "plist"),
 			let dictionary = NSDictionary(contentsOfFile: path) as? Dictionary<String,AnyObject>,
-			let questions = dictionary["questions"] as? Array<Dictionary<String,AnyObject>> {
-
-			return questions
+			let questions = dictionary["questions"] as? Array<Dictionary<String,AnyObject>> else {
+			fatalError("Bundle.main.path(forResource: \"SelectionItems\", ofType: \"plist\")")
 		}
 
-		return []
+		return questions
 
 	}()
 
