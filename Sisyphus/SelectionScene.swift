@@ -14,8 +14,6 @@ enum SelectionState : Int {
 
 class SelectionScene : Scene {
 
-	static var count = 0
-
 	static var questions : Array<Dictionary<String,AnyObject>> = {
 
 		guard let path = Bundle.main.path(forResource: "SelectionItems", ofType: "plist"),
@@ -42,8 +40,6 @@ class SelectionScene : Scene {
 		label.position = CGPoint(x: 0, y: frame.height/4)
 
 		addChild(label)
-
-		super.sceneDidLoad()
 	}
 
 	var items : Array<SKSpriteNode> = []
@@ -69,11 +65,11 @@ class SelectionScene : Scene {
 		}
 	}
 
+	var count = 0
+
 	override func sceneDidLoad() {
 
 		onScreenControls(directional: [.left, .right], action: [.primary])
-
-		SelectionScene.count += 1
 
 		let count = SelectionScene.questions.count
 		let index = Int(arc4random_uniform(UInt32(count)))
@@ -105,13 +101,9 @@ class SelectionScene : Scene {
 		let upscale = SKAction.scale(by: 2, duration: 0.5)
 		let downscale = SKAction.scale(by: 0.5, duration: 0.5)
 
-		if before != .none {
-			items[before.rawValue].run(downscale)
-		}
+		if before != .none { items[before.rawValue].run(downscale) }
 
-		if after != .none {
-			items[after.rawValue].run(upscale)
-		}
+		if after != .none { items[after.rawValue].run(upscale) }
 	}
 
 	override func update(_ currentTime: TimeInterval) {
@@ -134,7 +126,17 @@ class SelectionScene : Scene {
 
 			let transition = SKTransition.crossFade(withDuration: 1)
 
-			let scene = SelectionScene.count > 2 ? GameScene(size: size) : SelectionScene(size: size)
+			let scene : Scene!
+
+			if count > 2 {
+
+				scene = GameScene(size: size)
+			} else {
+
+				scene = SelectionScene(size: size)
+
+				(scene as! SelectionScene).count = count + 1
+			}
 
 			scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
 

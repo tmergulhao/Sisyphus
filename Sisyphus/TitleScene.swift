@@ -39,7 +39,7 @@ class TitleScene : Scene {
 
 	override func update(_ currentTime: TimeInterval) {
 
-		if action.contains(.primary) {
+		if action.contains(.primary) && !actionGuard.contains(.primary) {
 
 			label.removeAllActions()
 
