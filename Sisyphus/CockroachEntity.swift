@@ -11,8 +11,8 @@ import GameplayKit
 class CockroachEntity : GKEntity, StateAnimatable {
 
 	var actionAnimations : Array<AnimationState> = [
-		.idle	(RenderComponent.animation(with: "idle_", numberOfTextures: 5, atlasName: "cockroach", timePerFrame: 0.2)),
-		.flying	(RenderComponent.animation(with: "flying_", numberOfTextures: 6, atlasName: "cockroach", timePerFrame: 0.08))
+		.idle	(RenderComponent.animation(textureHandle: "idle_", numberOfTextures: 5, atlasName: "cockroach", timePerFrame: 0.2)),
+		.flying	(RenderComponent.animation(textureHandle: "flying_", numberOfTextures: 6, atlasName: "cockroach", timePerFrame: 0.08))
 	]
 
 	override init () {
@@ -20,6 +20,9 @@ class CockroachEntity : GKEntity, StateAnimatable {
 		super.init()
 
 		let render = RenderComponent()
+
+		render.size = CGSize(width: 128, height: 128)
+		
 		addComponent(render)
 
 		let movement = MovementComponent()

@@ -28,6 +28,7 @@
 		799DEED71DD6BE0A00FD77EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 799DEED61DD6BE0A00FD77EA /* Assets.xcassets */; };
 		799DEEDB1DD749E800FD77EA /* SelectionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799DEEDA1DD749E800FD77EA /* SelectionScene.swift */; };
 		799DEEDD1DD74ABC00FD77EA /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799DEEDC1DD74ABC00FD77EA /* GameScene.swift */; };
+		79AE76861DE3C33B000E31C5 /* GameScene+Insectarium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AE76851DE3C33B000E31C5 /* GameScene+Insectarium.swift */; };
 		79D5149E1DDA0A1E0078B04D /* FlyingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D5149D1DDA0A1E0078B04D /* FlyingState.swift */; };
 		79D514A01DDA0A2D0078B04D /* JumpingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D5149F1DDA0A2D0078B04D /* JumpingState.swift */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,7 @@
 		799DEED61DD6BE0A00FD77EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		799DEEDA1DD749E800FD77EA /* SelectionScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionScene.swift; sourceTree = "<group>"; };
 		799DEEDC1DD74ABC00FD77EA /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		79AE76851DE3C33B000E31C5 /* GameScene+Insectarium.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameScene+Insectarium.swift"; sourceTree = "<group>"; };
 		79D5149D1DDA0A1E0078B04D /* FlyingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlyingState.swift; sourceTree = "<group>"; };
 		79D5149F1DDA0A2D0078B04D /* JumpingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JumpingState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +110,7 @@
 				792650DF1DD76E35006C2F9A /* TitleScene.swift */,
 				799DEEDA1DD749E800FD77EA /* SelectionScene.swift */,
 				799DEEDC1DD74ABC00FD77EA /* GameScene.swift */,
+				79AE76851DE3C33B000E31C5 /* GameScene+Insectarium.swift */,
 				791733331DDD0DDB006E6CB0 /* Entities */,
 				79696E321DDCED17000A739A /* Components */,
 				79D5149C1DDA0A060078B04D /* States */,
@@ -233,6 +236,7 @@
 				79696E361DDCF322000A739A /* MiteEntity.swift in Sources */,
 				79D514A01DDA0A2D0078B04D /* JumpingState.swift in Sources */,
 				792650E01DD76E35006C2F9A /* TitleScene.swift in Sources */,
+				79AE76861DE3C33B000E31C5 /* GameScene+Insectarium.swift in Sources */,
 				791733371DDD0E07006E6CB0 /* FlyEntity.swift in Sources */,
 				7913C6F11DD95299002CA6F3 /* IdleState.swift in Sources */,
 			);

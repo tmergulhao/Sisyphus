@@ -11,35 +11,47 @@ import GameplayKit
 
 class GameScene : Scene {
 
+	var player : GKEntity!
+
 	override func sceneDidLoad() {
 
 		onScreenControls(directional: [.up, .down, .left, .right], action: [.primary])
-
-		let entity : GKEntity!
-
-		let index = Int(arc4random_uniform(UInt32(3)))
 	
-		switch index {
-		case 0: entity = MiteEntity()
-		case 1: entity = FlyEntity()
-		case 2: fallthrough
-		default: entity = CockroachEntity()
-		}
+		player = randomInsect()
 
-		entities.append(entity)
+		entities.append(player)
 
-		guard let node = entity.component(ofType: RenderComponent.self)?.spriteNode else {
+		guard let node = player.component(ofType: RenderComponent.self)?.spriteNode else {
 			fatalError("No sprite node on RenderComponent")
 		}
 
 		addChild(node)
+
+		setupInsectarium()
 
 		super.sceneDidLoad()
 	}
 
 	var previousTime : TimeInterval = 0
 
+	func updatePlayerControls () {
+
+		if let movementComponent = player.component(ofType: MovementComponent.self) {
+
+			movementComponent.directional = directional
+			movementComponent.directionalGuard = directionalGuard
+		}
+
+		if let actionComponent = player.component(ofType: ActionComponent.self) {
+
+			actionComponent.action = action
+			actionComponent.actionGuard = actionGuard
+		}
+	}
+
 	override func update(_ currentTime: TimeInterval) {
+
+		updatePlayerControls()
 
 		if (previousTime == 0) {
 			previousTime = currentTime
@@ -48,18 +60,6 @@ class GameScene : Scene {
 		let deltaTime = previousTime - currentTime
 
 		for entity in entities {
-			
-			if let movementComponent = entity.component(ofType: MovementComponent.self) {
-
-				movementComponent.directional = directional
-				movementComponent.directionalGuard = directionalGuard
-			}
-
-			if let actionComponent = entity.component(ofType: ActionComponent.self) {
-
-				actionComponent.action = action
-				actionComponent.actionGuard = actionGuard
-			}
 
 			entity.update(deltaTime: deltaTime)
 		}
