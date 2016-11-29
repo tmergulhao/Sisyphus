@@ -47,7 +47,7 @@ extension Scene {
 				fatalError("No sprite node on RenderComponent")
 			}
 
-			addChild(node)
+			entitiesNode.addChild(node)
 
 			let position = CGPoint(
 				x: xDistribution.nextInt(),

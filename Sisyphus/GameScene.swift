@@ -25,7 +25,7 @@ class GameScene : Scene {
 			fatalError("No sprite node on RenderComponent")
 		}
 
-		addChild(node)
+		entitiesNode.addChild(node)
 
 		guard let camera : SKCameraNode = camera else { return }
 		guard let playerNode : SKSpriteNode = player?.component(ofType: RenderComponent.self)?.spriteNode else { return }
@@ -34,8 +34,6 @@ class GameScene : Scene {
 		let playerLocationConstraint = SKConstraint.distance(zeroRange, to: playerNode)
 
 		camera.constraints = [playerLocationConstraint]
-
-		setupInsectarium()
 
 		super.sceneDidLoad()
 	}

@@ -11,6 +11,10 @@ import GameplayKit
 
 class Scene: SKScene {
 
+	var entitiesNode : SKNode! {
+		return childNode(withName: "Entities")
+	}
+
 	var entities : Array<GKEntity> = [GKEntity]()
 	var graphs : Dictionary<String, GKGraph> = [String : GKGraph]()
 
@@ -36,13 +40,19 @@ class Scene: SKScene {
 
 	var sceneAgent : GKAgent2D!
 
+	var insectatiumCreated : Bool = false
+
 	override func sceneDidLoad() {
 
 		sceneAgent = GKAgent2D()
 		sceneAgent.position = vector2(0, 0)
 		sceneAgent.radius = 300
 
-		setupInsectarium()
+		if insectatiumCreated == false {
+
+			insectatiumCreated = true
+			setupInsectarium()
+		}
 
 		super.sceneDidLoad()
 	}
