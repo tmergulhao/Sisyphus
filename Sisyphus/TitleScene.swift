@@ -12,6 +12,7 @@ import GameplayKit
 class TitleScene : Scene {
 
 	var pressSpace : SKLabelNode! { return childNode(withName: "Press space to start") as? SKLabelNode }
+	var title : SKNode! { return childNode(withName: "Title") }
 
 	override func sceneDidLoad() {
 
@@ -25,6 +26,13 @@ class TitleScene : Scene {
 	override func update(_ currentTime: TimeInterval) {
 
 		if action.contains(.primary) && !actionGuard.contains(.primary) {
+
+			let scale = SKAction.scale(by: 2, duration: 0.5)
+			let dissolve = SKAction.fadeOut(withDuration: 0.5)
+
+			let compound = SKAction.sequence([scale,dissolve])
+
+			title.run(compound)
 
 			let transition = SKTransition.crossFade(withDuration: 0.5)
 
