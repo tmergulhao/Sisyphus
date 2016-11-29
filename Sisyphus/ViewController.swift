@@ -15,11 +15,12 @@ class ViewController: NSViewController {
     @IBOutlet var sceneView : SKView!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+
+		super.viewDidLoad()
 
 		view.layer?.backgroundColor = .white
 
-		guard let scene = GKScene(fileNamed: "Scene") else { fatalError("No scene file on bundle") }
+		guard let scene = GKScene(fileNamed: "Title") else { fatalError("No scene file on bundle") }
 
 		guard let sceneNode = scene.rootNode as? TitleScene else { fatalError("Scene node does not match given class") }
 			

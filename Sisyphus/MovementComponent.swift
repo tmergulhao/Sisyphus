@@ -9,14 +9,6 @@
 import SpriteKit
 import GameplayKit
 
-typealias Degrees = CGFloat
-
-let π = CGFloat(M_PI)
-
-extension CGFloat {
-	var radians : CGFloat { return π * self / 180.0 }
-}
-
 class MovementComponent : GKComponent {
 
 	@GKInspectable var speed : CGFloat = 60

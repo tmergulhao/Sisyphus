@@ -7,12 +7,19 @@
 //
 
 import SpriteKit
+import GameplayKit
 
 enum SelectionState : Int {
 	case left = 0, center, right, none = 14
 }
 
 class SelectionScene : Scene {
+
+	var labelNode : SKLabelNode! { return childNode(withName: "Label") as? SKLabelNode }
+
+	var centerNode : SKNode! { return childNode(withName: "Center") }
+	var leftNode : SKNode! { return childNode(withName: "Left") }
+	var rightNode : SKNode! { return childNode(withName: "Right") }
 
 	static var questions : Array<Dictionary<String,AnyObject>> = {
 
@@ -25,26 +32,14 @@ class SelectionScene : Scene {
 		return questions
 	}()
 
-	func addLabel (forQuestion question : Dictionary<String,AnyObject>) {
+	var items : Array<SKNode> {
 
-		let value = question["value"] as! String
-
-		let label = SKLabelNode(fontNamed: fontName)
-
-		label.text = value
-		label.fontColor = SKColor.black
-		label.fontSize = 100
-		label.horizontalAlignmentMode = .center
-		label.verticalAlignmentMode = .baseline
-
-		label.position = CGPoint(x: 0, y: frame.height/4)
-
-		addChild(label)
+		return [leftNode, centerNode, rightNode]
 	}
 
-	var items : Array<SKSpriteNode> = []
-
 	func addItems (forQuestion question : Dictionary<String,AnyObject>) {
+
+		items.forEach({ $0.removeAllChildren() })
 
 		let atlasName = question["atlas"] as! String
 		let imageNames = question["images"] as! Array<String>
@@ -52,16 +47,21 @@ class SelectionScene : Scene {
 		let atlas = SKTextureAtlas(named: atlasName)
 
 		for index in 0...2 {
+
 			let texture = atlas.textureNamed(imageNames[index])
 			let size = CGSize(width: 128, height: 128)
 
 			let item = SKSpriteNode(texture: texture, color: NSColor.clear, size: size)
-			let position = CGPoint(x: 0.33 * CGFloat(index - 1) * frame.width, y: 0)
 
-			item.position = position
-
-			items.append(item)
-			addChild(item)
+			switch index {
+			case 0:
+				leftNode.addChild(item)
+			case 1:
+				centerNode.addChild(item)
+			case 2:
+				rightNode.addChild(item)
+			default: break
+			}
 		}
 	}
 
@@ -78,7 +78,10 @@ class SelectionScene : Scene {
 
 		addItems(forQuestion : question)
 
-		addLabel(forQuestion : question)
+		let value = question["value"] as! String
+
+		labelNode.fontName = fontName
+		labelNode.text = value
 
 		selection = .center
 
@@ -124,29 +127,43 @@ class SelectionScene : Scene {
 
 		if action.contains(.primary) && !actionGuard.contains(.primary) {
 
-			let transition = SKTransition.crossFade(withDuration: 1)
-
-			let scene : Scene!
-
-			if count > 2 {
-
-				scene = GameScene(size: size)
-			} else {
-
-				scene = SelectionScene(size: size)
-
-				(scene as! SelectionScene).count = count + 1
-			}
-
-			scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-
-			scene.actionGuard = actionGuard
-
-			transition.pausesOutgoingScene = false
-
-			view?.presentScene(scene, transition: transition)
+			transitionToNextSelection()
 		}
 
 		super.update(currentTime)
+	}
+
+	func transitionToNextSelection () {
+
+		let transition = SKTransition.crossFade(withDuration: 1)
+
+		transition.pausesOutgoingScene = false
+
+		var scene : GKScene!
+		var sceneNode : Scene!
+
+		if count > 1 {
+
+			scene = GKScene(fileNamed: "Game")
+
+			let gameSceneNode = scene.rootNode as! GameScene
+
+			sceneNode = gameSceneNode
+		} else {
+
+			scene = GKScene(fileNamed: "Selection")
+
+			let selectionSceneNode = scene.rootNode as! SelectionScene
+
+			selectionSceneNode.count = count + 1
+
+			sceneNode = selectionSceneNode
+		}
+
+		sceneNode.actionGuard = actionGuard
+
+		sceneNode.scaleMode = .aspectFill
+
+		view?.presentScene(sceneNode, transition: transition)
 	}
 }

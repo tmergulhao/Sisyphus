@@ -7,12 +7,15 @@
 //
 
 import SpriteKit
+import GameplayKit
 
 class TitleScene : Scene {
 
 	var label : SKLabelNode!
 
 	override func sceneDidLoad() {
+
+		super.sceneDidLoad()
 
 		onScreenControls(directional: [], action: [.primary])
 
@@ -33,8 +36,6 @@ class TitleScene : Scene {
 		label.run(blink)
 
 		addChild(label)
-
-		super.sceneDidLoad()
 	}
 
 	override func update(_ currentTime: TimeInterval) {
@@ -52,15 +53,22 @@ class TitleScene : Scene {
 
 			let transition = SKTransition.crossFade(withDuration: 0.5)
 
-			let scene = SelectionScene(size: size)
-
-			scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-
-			scene.actionGuard = actionGuard
-
 			transition.pausesOutgoingScene = false
 
-			view?.presentScene(scene, transition: transition)
+			guard let scene = GKScene(fileNamed: "Selection") else { fatalError("No scene file on bundle") }
+
+			guard let sceneNode = scene.rootNode as? SelectionScene else { fatalError("Scene node does not match given class") }
+
+			sceneNode.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+
+			sceneNode.actionGuard = actionGuard
+
+			sceneNode.entities = scene.entities
+			sceneNode.graphs = scene.graphs
+
+			sceneNode.scaleMode = .aspectFill
+
+			view?.presentScene(sceneNode, transition: transition)
 		}
 
 		super.update(currentTime)

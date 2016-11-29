@@ -22,11 +22,8 @@ class Scene: SKScene {
 	var action : Action = .none
 	var actionGuard : Action = .none
 
-	override func sceneDidLoad() {
-		backgroundColor = .white
-	}
-
 	override func update(_ currentTime: TimeInterval) {
+
 		directionalGuard = directional
 		actionGuard = action
 	}
@@ -68,12 +65,4 @@ class Scene: SKScene {
 			return
 		}
 	}
-
-	// MARK - OnScreenControls
-
-	var spaceBar : SKSpriteNode?
-	var arrowUp : SKSpriteNode?
-	var arrowDown : SKSpriteNode?
-	var arrowRight : SKSpriteNode?
-	var arrowLeft : SKSpriteNode?
 }

@@ -27,6 +27,9 @@ class ActionComponent : GKComponent {
 
 	var animation : Dictionary<GKState, SKAction> = [:]
 
+	var touchPosition : CGPoint?
+	var obstacleEntities : Array<GKEntity>?
+
 	override func didAddToEntity() {
 
 		guard let entity = entity as? StateAnimatable else {

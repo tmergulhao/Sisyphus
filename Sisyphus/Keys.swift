@@ -1,5 +1,5 @@
 //
-//  GameScene+Controls.swift
+//  Keys.swift
 //  Sisyphus
 //
 //  Created by Tiago Mergulhão on 09/11/16.
@@ -33,7 +33,6 @@ struct Directional : OptionSet, Hashable {
 		default: return nil
 		}
 	}
-
 }
 
 struct Action : OptionSet, Hashable {

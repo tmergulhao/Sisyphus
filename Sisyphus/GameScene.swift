@@ -11,12 +11,19 @@ import GameplayKit
 
 class GameScene : Scene {
 
+	override var controls : SKNode! { return childNode(withName: "Camera")?.childNode(withName: "Controls")?.children[0] }
+
+	override var camera: SKCameraNode? {
+		get { return childNode(withName: "Camera") as? SKCameraNode }
+		set { return }
+	}
+
 	var player : GKEntity!
 
 	override func sceneDidLoad() {
 
 		onScreenControls(directional: [.up, .down, .left, .right], action: [.primary])
-	
+
 		player = randomInsect()
 
 		entities.append(player)
@@ -26,6 +33,14 @@ class GameScene : Scene {
 		}
 
 		addChild(node)
+
+		guard let camera : SKCameraNode = camera else { return }
+		guard let playerNode : SKSpriteNode = player?.component(ofType: RenderComponent.self)?.spriteNode else { return }
+
+		let zeroRange = SKRange(constantValue: 0.0)
+		let playerLocationConstraint = SKConstraint.distance(zeroRange, to: playerNode)
+
+		camera.constraints = [playerLocationConstraint]
 
 		setupInsectarium()
 
@@ -53,7 +68,7 @@ class GameScene : Scene {
 
 		updatePlayerControls()
 
-		if (previousTime == 0) {
+		if previousTime == 0 {
 			previousTime = currentTime
 		}
 
