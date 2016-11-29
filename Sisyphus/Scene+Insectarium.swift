@@ -39,7 +39,7 @@ extension Scene {
 		var flys : Array<FlyEntity> = []
 		var mites : Array<MiteEntity> = []
 
-		for _ in 0...2 {
+		for _ in 0...5 {
 
 			let insect = randomInsect()
 
