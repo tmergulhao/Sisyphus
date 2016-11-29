@@ -47,9 +47,9 @@
 			<string>Escoger una fruta</string>
 			<key>images</key>
 			<array>
-				<string>circle</string>
-				<string>square</string>
-				<string>triangle</string>
+				<string>bananna</string>
+				<string>cherry</string>
+				<string>pinapple</string>
 			</array>
 		</dict>
 		<dict>
@@ -59,9 +59,9 @@
 			<string>¿Cuál te da más miedo?</string>
 			<key>images</key>
 			<array>
-				<string>circle</string>
-				<string>square</string>
-				<string>triangle</string>
+				<string>fly</string>
+				<string>cockroach</string>
+				<string>mite</string>
 			</array>
 		</dict>
 		<dict>
@@ -71,9 +71,9 @@
 			<string>¿A cuál matarías?</string>
 			<key>images</key>
 			<array>
-				<string>circle</string>
-				<string>square</string>
-				<string>triangle</string>
+				<string>catKill</string>
+				<string>spider</string>
+				<string>frog</string>
 			</array>
 		</dict>
 		<dict>

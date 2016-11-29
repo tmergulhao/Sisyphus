@@ -11,8 +11,8 @@ import GameplayKit
 class FlyEntity : GKEntity, StateAnimatable {
 
 	var actionAnimations : Array<AnimationState> = [
-		.idle	(RenderComponent.animation(textureHandle: "idle_", numberOfTextures: 3, atlasName: "fly", timePerFrame: 0.2)),
-		.flying	(RenderComponent.animation(textureHandle: "flying_", numberOfTextures: 2, atlasName: "fly", timePerFrame: 0.2))
+		.idle	(RenderComponent.animation(textureHandle: "idle_", numberOfTextures: 5, atlasName: "fly", timePerFrame: 0.2)),
+		.flying	(RenderComponent.animation(textureHandle: "flying_", numberOfTextures: 6, atlasName: "fly", timePerFrame: 0.2))
 	]
 
 	override init () {

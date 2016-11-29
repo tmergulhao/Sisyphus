@@ -29,7 +29,7 @@ class JumpingState : GKState {
 
 	override func isValidNextState(_ stateClass: AnyClass) -> Bool {
 
-		return stateClass is IdleState.Type
+		return true
 	}
 	
 	override func didEnter(from previousState: GKState?) {

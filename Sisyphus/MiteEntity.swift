@@ -11,8 +11,8 @@ import GameplayKit
 class MiteEntity : GKEntity, StateAnimatable {
 
 	var actionAnimations : Array<AnimationState> = [
-		.idle	(RenderComponent.animation(textureHandle: "idle_", numberOfTextures: 2, atlasName: "mite", timePerFrame: 0.08)),
-		.jumping(RenderComponent.animation(textureHandle: "idle_", numberOfTextures: 2, atlasName: "mite", timePerFrame: 0.2))
+		.idle	(RenderComponent.animation(textureHandle: "idle_", numberOfTextures: 3, atlasName: "mite", timePerFrame: 0.08)),
+		.jumping(RenderComponent.animation(textureHandle: "idle_", numberOfTextures: 3, atlasName: "mite", timePerFrame: 0.2))
 	]
 
 	override init () {

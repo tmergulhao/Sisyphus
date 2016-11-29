@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "fly_idle_1.png",
+      "filename" : "idle_1.png",
       "scale" : "1x"
     },
     {

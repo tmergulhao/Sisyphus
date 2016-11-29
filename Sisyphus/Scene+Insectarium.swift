@@ -26,7 +26,7 @@ extension Scene {
 
 	func setupInsectarium () {
 
-		let frame : (xMax : Int, yMax : Int) = (Int(size.width), Int(size.height))
+		let frame : (xMax : Int, yMax : Int) = (500, 500)
 
 		let randomSource = GKMersenneTwisterRandomSource()
 
@@ -39,7 +39,7 @@ extension Scene {
 		var flys : Array<FlyEntity> = []
 		var mites : Array<MiteEntity> = []
 
-		for _ in 0...100 {
+		for _ in 0...20 {
 
 			let insect = randomInsect()
 
@@ -88,6 +88,7 @@ extension Scene {
 		cockroachAgents.forEach {
 
 			$0.behavior  = GKBehavior(goals: [
+				GKGoal(toAvoid: obstacles, maxPredictionTime: 1),
 				GKGoal(toAlignWith: cockroachAgents, maxDistance: 10, maxAngle: .pi/4),
 				GKGoal(toCohereWith: cockroachAgents, maxDistance: 10, maxAngle: .pi/4),
 				GKGoal(toSeparateFrom: cockroachAgents, maxDistance: 10, maxAngle: .pi/4),
@@ -98,6 +99,7 @@ extension Scene {
 		flyAgents.forEach {
 
 			$0.behavior = GKBehavior(goals: [
+				GKGoal(toAvoid: obstacles, maxPredictionTime: 1),
 				GKGoal(toAlignWith: flyAgents, maxDistance: 10, maxAngle: .pi/4),
 				GKGoal(toCohereWith: flyAgents, maxDistance: 10, maxAngle: .pi/4),
 				GKGoal(toSeparateFrom: flyAgents, maxDistance: 50, maxAngle: .pi/4),
@@ -108,6 +110,7 @@ extension Scene {
 		miteAgents.forEach {
 
 			$0.behavior  = GKBehavior(goals: [
+				GKGoal(toAvoid: obstacles, maxPredictionTime: 1),
 				GKGoal(toAlignWith: miteAgents, maxDistance: 10, maxAngle: .pi/4),
 				GKGoal(toCohereWith: miteAgents, maxDistance: 10, maxAngle: .pi/4),
 				GKGoal(toSeparateFrom: miteAgents, maxDistance: 100, maxAngle: .pi/4),

@@ -16,6 +16,7 @@ enum AnimationState {
 	case idle	(SKAction)
 	case flying	(SKAction)
 	case jumping(SKAction)
+	case moving (SKAction)
 }
 
 class ActionComponent : GKComponent {
@@ -52,6 +53,10 @@ class ActionComponent : GKComponent {
 				let state = JumpingState(self)
 				states.append(state)
 				animation[state] = action
+			case .moving(let action): break
+//				let state = MovingState(self)
+//				states.append(state)
+//				animation[state] = action
 			}
 		}
 

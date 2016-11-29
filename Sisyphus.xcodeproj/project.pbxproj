@@ -14,6 +14,7 @@
 		791733391DDD3FD8006E6CB0 /* Scene+OnScreenControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791733381DDD3FD8006E6CB0 /* Scene+OnScreenControls.swift */; };
 		792650DE1DD7542A006C2F9A /* SelectionItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 792650DD1DD7542A006C2F9A /* SelectionItems.plist */; };
 		792650E01DD76E35006C2F9A /* TitleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792650DF1DD76E35006C2F9A /* TitleScene.swift */; };
+		7939A6DB1DEDDBCC0012C396 /* Kitchen floor.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7939A6DA1DEDDBCC0012C396 /* Kitchen floor.sks */; };
 		793C3DC31DC4095100351D34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793C3DC21DC4095100351D34 /* AppDelegate.swift */; };
 		793C3DC51DC4095100351D34 /* Title.sks in Resources */ = {isa = PBXBuildFile; fileRef = 793C3DC41DC4095100351D34 /* Title.sks */; };
 		793C3DC71DC4095100351D34 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 793C3DC61DC4095100351D34 /* Actions.sks */; };
@@ -46,6 +47,7 @@
 		791733381DDD3FD8006E6CB0 /* Scene+OnScreenControls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Scene+OnScreenControls.swift"; sourceTree = "<group>"; };
 		792650DD1DD7542A006C2F9A /* SelectionItems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SelectionItems.plist; sourceTree = "<group>"; };
 		792650DF1DD76E35006C2F9A /* TitleScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleScene.swift; sourceTree = "<group>"; };
+		7939A6DA1DEDDBCC0012C396 /* Kitchen floor.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Kitchen floor.sks"; sourceTree = "<group>"; };
 		793C3DBF1DC4095100351D34 /* Sisyphus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sisyphus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		793C3DC21DC4095100351D34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		793C3DC41DC4095100351D34 /* Title.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Title.sks; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				793C3DC41DC4095100351D34 /* Title.sks */,
 				79C423751DED332700CFA1D8 /* Selection.sks */,
 				79C423771DED3BDD00CFA1D8 /* Game.sks */,
+				7939A6DA1DEDDBCC0012C396 /* Kitchen floor.sks */,
 				793C3DC61DC4095100351D34 /* Actions.sks */,
 			);
 			name = Scenes;
@@ -267,6 +270,7 @@
 				793C3DC71DC4095100351D34 /* Actions.sks in Resources */,
 				79C423761DED332700CFA1D8 /* Selection.sks in Resources */,
 				793C3DD01DC4095100351D34 /* Main.storyboard in Resources */,
+				7939A6DB1DEDDBCC0012C396 /* Kitchen floor.sks in Resources */,
 				799DEED71DD6BE0A00FD77EA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

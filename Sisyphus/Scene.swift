@@ -22,7 +22,14 @@ class Scene: SKScene {
 	var action : Action = .none
 	var actionGuard : Action = .none
 
+	lazy var obstacles : Array<GKPolygonObstacle>! = ({
+
+		let nodes = self.childNode(withName: "Outer walls")!.children
+		return SKNode.obstacles(fromNodeBounds: nodes)
+	})()
+
 	override var camera: SKCameraNode! {
+
 		get { return childNode(withName: "Camera") as? SKCameraNode }
 		set { return }
 	}
