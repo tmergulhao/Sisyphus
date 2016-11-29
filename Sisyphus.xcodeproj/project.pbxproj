@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		79122A501DEE054500DD2E19 /* Toxic gas.sks in Resources */ = {isa = PBXBuildFile; fileRef = 79122A4F1DEE054500DD2E19 /* Toxic gas.sks */; };
 		7913C6F11DD95299002CA6F3 /* IdleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7913C6F01DD95299002CA6F3 /* IdleState.swift */; };
 		791733321DDD0617006E6CB0 /* ActionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791733311DDD0617006E6CB0 /* ActionComponent.swift */; };
 		791733351DDD0DFD006E6CB0 /* CockroachEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791733341DDD0DFD006E6CB0 /* CockroachEntity.swift */; };
@@ -22,6 +23,7 @@
 		793C3DCB1DC4095100351D34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793C3DCA1DC4095100351D34 /* ViewController.swift */; };
 		793C3DD01DC4095100351D34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 793C3DCE1DC4095100351D34 /* Main.storyboard */; };
 		793C3DD81DC4099300351D34 /* Computer Pixel-7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 793C3DD71DC4099300351D34 /* Computer Pixel-7.ttf */; };
+		7968D1B61DEE0A1700449A0C /* Fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7968D1B41DEE0A1700449A0C /* Fire.sks */; };
 		79696E311DDCED12000A739A /* MovementComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79696E301DDCED12000A739A /* MovementComponent.swift */; };
 		79696E341DDCF2DD000A739A /* RenderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79696E331DDCF2DD000A739A /* RenderComponent.swift */; };
 		79696E361DDCF322000A739A /* MiteEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79696E351DDCF322000A739A /* MiteEntity.swift */; };
@@ -40,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		79122A4F1DEE054500DD2E19 /* Toxic gas.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Toxic gas.sks"; sourceTree = "<group>"; };
 		7913C6F01DD95299002CA6F3 /* IdleState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdleState.swift; sourceTree = "<group>"; };
 		791733311DDD0617006E6CB0 /* ActionComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionComponent.swift; sourceTree = "<group>"; };
 		791733341DDD0DFD006E6CB0 /* CockroachEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CockroachEntity.swift; sourceTree = "<group>"; };
@@ -57,6 +60,7 @@
 		793C3DCF1DC4095100351D34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		793C3DD11DC4095100351D34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		793C3DD71DC4099300351D34 /* Computer Pixel-7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Computer Pixel-7.ttf"; sourceTree = "<group>"; };
+		7968D1B41DEE0A1700449A0C /* Fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fire.sks; sourceTree = "<group>"; };
 		79696E301DDCED12000A739A /* MovementComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovementComponent.swift; sourceTree = "<group>"; };
 		79696E331DDCF2DD000A739A /* RenderComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderComponent.swift; sourceTree = "<group>"; };
 		79696E351DDCF322000A739A /* MiteEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiteEntity.swift; sourceTree = "<group>"; };
@@ -66,7 +70,7 @@
 		799DEEDC1DD74ABC00FD77EA /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		79AE76851DE3C33B000E31C5 /* Scene+Insectarium.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Scene+Insectarium.swift"; sourceTree = "<group>"; };
 		79AE76AA1DE3D6F3000E31C5 /* Degrees.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Degrees.swift; sourceTree = "<group>"; };
-		79C423751DED332700CFA1D8 /* Selection.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Selection.sks; path = ../Selection.sks; sourceTree = "<group>"; };
+		79C423751DED332700CFA1D8 /* Selection.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Selection.sks; sourceTree = "<group>"; };
 		79C423771DED3BDD00CFA1D8 /* Game.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Game.sks; sourceTree = "<group>"; };
 		79C423791DED3C5000CFA1D8 /* On screen controls.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "On screen controls.sks"; sourceTree = "<group>"; };
 		79D5149D1DDA0A1E0078B04D /* FlyingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlyingState.swift; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 				793C3DC41DC4095100351D34 /* Title.sks */,
 				79C423751DED332700CFA1D8 /* Selection.sks */,
 				79C423771DED3BDD00CFA1D8 /* Game.sks */,
+				7968D1B41DEE0A1700449A0C /* Fire.sks */,
+				79122A4F1DEE054500DD2E19 /* Toxic gas.sks */,
 				7939A6DA1DEDDBCC0012C396 /* Kitchen floor.sks */,
 				793C3DC61DC4095100351D34 /* Actions.sks */,
 			);
@@ -266,10 +272,12 @@
 				793C3DC51DC4095100351D34 /* Title.sks in Resources */,
 				79C423781DED3BDD00CFA1D8 /* Game.sks in Resources */,
 				793C3DD81DC4099300351D34 /* Computer Pixel-7.ttf in Resources */,
+				79122A501DEE054500DD2E19 /* Toxic gas.sks in Resources */,
 				792650DE1DD7542A006C2F9A /* SelectionItems.plist in Resources */,
 				793C3DC71DC4095100351D34 /* Actions.sks in Resources */,
 				79C423761DED332700CFA1D8 /* Selection.sks in Resources */,
 				793C3DD01DC4095100351D34 /* Main.storyboard in Resources */,
+				7968D1B61DEE0A1700449A0C /* Fire.sks in Resources */,
 				7939A6DB1DEDDBCC0012C396 /* Kitchen floor.sks in Resources */,
 				799DEED71DD6BE0A00FD77EA /* Assets.xcassets in Resources */,
 			);
