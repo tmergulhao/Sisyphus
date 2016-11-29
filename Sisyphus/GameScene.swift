@@ -11,13 +11,6 @@ import GameplayKit
 
 class GameScene : Scene {
 
-	override var controls : SKNode! { return childNode(withName: "Camera")?.childNode(withName: "Controls")?.children[0] }
-
-	override var camera: SKCameraNode? {
-		get { return childNode(withName: "Camera") as? SKCameraNode }
-		set { return }
-	}
-
 	var player : GKEntity!
 
 	override func sceneDidLoad() {
@@ -47,9 +40,7 @@ class GameScene : Scene {
 		super.sceneDidLoad()
 	}
 
-	var previousTime : TimeInterval = 0
-
-	func updatePlayerControls () {
+	override func update(_ currentTime: TimeInterval) {
 
 		if let movementComponent = player.component(ofType: MovementComponent.self) {
 
@@ -62,25 +53,14 @@ class GameScene : Scene {
 			actionComponent.action = action
 			actionComponent.actionGuard = actionGuard
 		}
-	}
-
-	override func update(_ currentTime: TimeInterval) {
-
-		updatePlayerControls()
-
-		if previousTime == 0 {
-			previousTime = currentTime
-		}
-
-		let deltaTime = previousTime - currentTime
-
-		for entity in entities {
-
-			entity.update(deltaTime: deltaTime)
-		}
-
-		previousTime = currentTime
 
 		super.update(currentTime)
+	}
+
+	override func mouseDown (with event: NSEvent) {
+
+		let location = event.location(in: self)
+
+		sceneAgent.position = vector2(Float(location.x), Float(location.y))
 	}
 }

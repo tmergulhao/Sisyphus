@@ -28,14 +28,14 @@
 		799DEED71DD6BE0A00FD77EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 799DEED61DD6BE0A00FD77EA /* Assets.xcassets */; };
 		799DEEDB1DD749E800FD77EA /* SelectionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799DEEDA1DD749E800FD77EA /* SelectionScene.swift */; };
 		799DEEDD1DD74ABC00FD77EA /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799DEEDC1DD74ABC00FD77EA /* GameScene.swift */; };
-		79AE76861DE3C33B000E31C5 /* GameScene+Insectarium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AE76851DE3C33B000E31C5 /* GameScene+Insectarium.swift */; };
+		79AE76861DE3C33B000E31C5 /* Scene+Insectarium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AE76851DE3C33B000E31C5 /* Scene+Insectarium.swift */; };
 		79AE76AB1DE3D6F3000E31C5 /* Degrees.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AE76AA1DE3D6F3000E31C5 /* Degrees.swift */; };
-		79AE76AD1DE3E097000E31C5 /* GatheringState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AE76AC1DE3E097000E31C5 /* GatheringState.swift */; };
 		79C423761DED332700CFA1D8 /* Selection.sks in Resources */ = {isa = PBXBuildFile; fileRef = 79C423751DED332700CFA1D8 /* Selection.sks */; };
 		79C423781DED3BDD00CFA1D8 /* Game.sks in Resources */ = {isa = PBXBuildFile; fileRef = 79C423771DED3BDD00CFA1D8 /* Game.sks */; };
 		79C4237A1DED3C5000CFA1D8 /* On screen controls.sks in Resources */ = {isa = PBXBuildFile; fileRef = 79C423791DED3C5000CFA1D8 /* On screen controls.sks */; };
 		79D5149E1DDA0A1E0078B04D /* FlyingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D5149D1DDA0A1E0078B04D /* FlyingState.swift */; };
 		79D514A01DDA0A2D0078B04D /* JumpingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D5149F1DDA0A2D0078B04D /* JumpingState.swift */; };
+		79F92C041DED6C8D007587FC /* GKAgentDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F92C031DED6C8D007587FC /* GKAgentDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,14 +62,14 @@
 		799DEED61DD6BE0A00FD77EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		799DEEDA1DD749E800FD77EA /* SelectionScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionScene.swift; sourceTree = "<group>"; };
 		799DEEDC1DD74ABC00FD77EA /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		79AE76851DE3C33B000E31C5 /* GameScene+Insectarium.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameScene+Insectarium.swift"; sourceTree = "<group>"; };
+		79AE76851DE3C33B000E31C5 /* Scene+Insectarium.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Scene+Insectarium.swift"; sourceTree = "<group>"; };
 		79AE76AA1DE3D6F3000E31C5 /* Degrees.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Degrees.swift; sourceTree = "<group>"; };
-		79AE76AC1DE3E097000E31C5 /* GatheringState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GatheringState.swift; sourceTree = "<group>"; };
 		79C423751DED332700CFA1D8 /* Selection.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Selection.sks; path = ../Selection.sks; sourceTree = "<group>"; };
 		79C423771DED3BDD00CFA1D8 /* Game.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Game.sks; sourceTree = "<group>"; };
 		79C423791DED3C5000CFA1D8 /* On screen controls.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "On screen controls.sks"; sourceTree = "<group>"; };
 		79D5149D1DDA0A1E0078B04D /* FlyingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlyingState.swift; sourceTree = "<group>"; };
 		79D5149F1DDA0A2D0078B04D /* JumpingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JumpingState.swift; sourceTree = "<group>"; };
+		79F92C031DED6C8D007587FC /* GKAgentDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GKAgentDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,12 +91,20 @@
 				791733361DDD0E07006E6CB0 /* FlyEntity.swift */,
 			);
 			name = Entities;
+			path = Sisyphus;
 			sourceTree = "<group>";
 		};
 		793C3DB61DC4095100351D34 = {
 			isa = PBXGroup;
 			children = (
 				793C3DC11DC4095100351D34 /* Sisyphus */,
+				79F92C051DED7FB6007587FC /* Scenes */,
+				79F92C061DED7FC0007587FC /* Scene classes */,
+				79F92C071DED7FD4007587FC /* Scene components */,
+				791733331DDD0DDB006E6CB0 /* Entities */,
+				79696E321DDCED17000A739A /* Components */,
+				79D5149C1DDA0A060078B04D /* States */,
+				79F92C081DED7FED007587FC /* Supporting files */,
 				793C3DC01DC4095100351D34 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -114,27 +122,6 @@
 			children = (
 				793C3DC21DC4095100351D34 /* AppDelegate.swift */,
 				793C3DCA1DC4095100351D34 /* ViewController.swift */,
-				796971F91DD3529E008375E4 /* Keys.swift */,
-				793C3DC81DC4095100351D34 /* Scene.swift */,
-				791733381DDD3FD8006E6CB0 /* Scene+OnScreenControls.swift */,
-				792650DF1DD76E35006C2F9A /* TitleScene.swift */,
-				799DEEDA1DD749E800FD77EA /* SelectionScene.swift */,
-				799DEEDC1DD74ABC00FD77EA /* GameScene.swift */,
-				79AE76851DE3C33B000E31C5 /* GameScene+Insectarium.swift */,
-				791733331DDD0DDB006E6CB0 /* Entities */,
-				79696E321DDCED17000A739A /* Components */,
-				79D5149C1DDA0A060078B04D /* States */,
-				79AE76AA1DE3D6F3000E31C5 /* Degrees.swift */,
-				799DEED61DD6BE0A00FD77EA /* Assets.xcassets */,
-				792650DD1DD7542A006C2F9A /* SelectionItems.plist */,
-				79C423791DED3C5000CFA1D8 /* On screen controls.sks */,
-				793C3DC41DC4095100351D34 /* Title.sks */,
-				79C423751DED332700CFA1D8 /* Selection.sks */,
-				79C423771DED3BDD00CFA1D8 /* Game.sks */,
-				793C3DC61DC4095100351D34 /* Actions.sks */,
-				793C3DCE1DC4095100351D34 /* Main.storyboard */,
-				793C3DD71DC4099300351D34 /* Computer Pixel-7.ttf */,
-				793C3DD11DC4095100351D34 /* Info.plist */,
 			);
 			path = Sisyphus;
 			sourceTree = "<group>";
@@ -145,8 +132,10 @@
 				791733311DDD0617006E6CB0 /* ActionComponent.swift */,
 				79696E301DDCED12000A739A /* MovementComponent.swift */,
 				79696E331DDCF2DD000A739A /* RenderComponent.swift */,
+				79F92C031DED6C8D007587FC /* GKAgentDelegate.swift */,
 			);
 			name = Components;
+			path = Sisyphus;
 			sourceTree = "<group>";
 		};
 		79D5149C1DDA0A060078B04D /* States */ = {
@@ -155,9 +144,59 @@
 				7913C6F01DD95299002CA6F3 /* IdleState.swift */,
 				79D5149D1DDA0A1E0078B04D /* FlyingState.swift */,
 				79D5149F1DDA0A2D0078B04D /* JumpingState.swift */,
-				79AE76AC1DE3E097000E31C5 /* GatheringState.swift */,
 			);
 			name = States;
+			path = Sisyphus;
+			sourceTree = "<group>";
+		};
+		79F92C051DED7FB6007587FC /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				793C3DC41DC4095100351D34 /* Title.sks */,
+				79C423751DED332700CFA1D8 /* Selection.sks */,
+				79C423771DED3BDD00CFA1D8 /* Game.sks */,
+				793C3DC61DC4095100351D34 /* Actions.sks */,
+			);
+			name = Scenes;
+			path = Sisyphus;
+			sourceTree = "<group>";
+		};
+		79F92C061DED7FC0007587FC /* Scene classes */ = {
+			isa = PBXGroup;
+			children = (
+				793C3DC81DC4095100351D34 /* Scene.swift */,
+				79AE76851DE3C33B000E31C5 /* Scene+Insectarium.swift */,
+				791733381DDD3FD8006E6CB0 /* Scene+OnScreenControls.swift */,
+				792650DF1DD76E35006C2F9A /* TitleScene.swift */,
+				799DEEDA1DD749E800FD77EA /* SelectionScene.swift */,
+				799DEEDC1DD74ABC00FD77EA /* GameScene.swift */,
+			);
+			name = "Scene classes";
+			path = Sisyphus;
+			sourceTree = "<group>";
+		};
+		79F92C071DED7FD4007587FC /* Scene components */ = {
+			isa = PBXGroup;
+			children = (
+				79C423791DED3C5000CFA1D8 /* On screen controls.sks */,
+			);
+			name = "Scene components";
+			path = Sisyphus;
+			sourceTree = "<group>";
+		};
+		79F92C081DED7FED007587FC /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				796971F91DD3529E008375E4 /* Keys.swift */,
+				79AE76AA1DE3D6F3000E31C5 /* Degrees.swift */,
+				799DEED61DD6BE0A00FD77EA /* Assets.xcassets */,
+				792650DD1DD7542A006C2F9A /* SelectionItems.plist */,
+				793C3DCE1DC4095100351D34 /* Main.storyboard */,
+				793C3DD71DC4099300351D34 /* Computer Pixel-7.ttf */,
+				793C3DD11DC4095100351D34 /* Info.plist */,
+			);
+			name = "Supporting files";
+			path = Sisyphus;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,9 +282,9 @@
 				799DEEDB1DD749E800FD77EA /* SelectionScene.swift in Sources */,
 				791733391DDD3FD8006E6CB0 /* Scene+OnScreenControls.swift in Sources */,
 				79AE76AB1DE3D6F3000E31C5 /* Degrees.swift in Sources */,
+				79F92C041DED6C8D007587FC /* GKAgentDelegate.swift in Sources */,
 				793C3DC91DC4095100351D34 /* Scene.swift in Sources */,
 				79696E341DDCF2DD000A739A /* RenderComponent.swift in Sources */,
-				79AE76AD1DE3E097000E31C5 /* GatheringState.swift in Sources */,
 				791733321DDD0617006E6CB0 /* ActionComponent.swift in Sources */,
 				799DEEDD1DD74ABC00FD77EA /* GameScene.swift in Sources */,
 				79D5149E1DDA0A1E0078B04D /* FlyingState.swift in Sources */,
@@ -256,7 +295,7 @@
 				79696E361DDCF322000A739A /* MiteEntity.swift in Sources */,
 				79D514A01DDA0A2D0078B04D /* JumpingState.swift in Sources */,
 				792650E01DD76E35006C2F9A /* TitleScene.swift in Sources */,
-				79AE76861DE3C33B000E31C5 /* GameScene+Insectarium.swift in Sources */,
+				79AE76861DE3C33B000E31C5 /* Scene+Insectarium.swift in Sources */,
 				791733371DDD0E07006E6CB0 /* FlyEntity.swift in Sources */,
 				7913C6F11DD95299002CA6F3 /* IdleState.swift in Sources */,
 			);

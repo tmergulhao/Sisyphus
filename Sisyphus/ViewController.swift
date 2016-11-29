@@ -39,4 +39,3 @@ class ViewController: NSViewController {
 		view.showsNodeCount = true
     }
 }
-

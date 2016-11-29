@@ -22,7 +22,38 @@ class Scene: SKScene {
 	var action : Action = .none
 	var actionGuard : Action = .none
 
+	override var camera: SKCameraNode! {
+		get { return childNode(withName: "Camera") as? SKCameraNode }
+		set { return }
+	}
+
+	var sceneAgent : GKAgent2D!
+
+	override func sceneDidLoad() {
+
+		sceneAgent = GKAgent2D()
+		sceneAgent.position = vector2(0, 0)
+		sceneAgent.radius = 300
+
+		setupInsectarium()
+
+		super.sceneDidLoad()
+	}
+
+	var previousTime : TimeInterval = 0
+
 	override func update(_ currentTime: TimeInterval) {
+
+		if previousTime == 0 { previousTime = currentTime }
+
+		let deltaTime = currentTime - previousTime
+
+		for entity in entities {
+
+			entity.update(deltaTime: deltaTime)
+		}
+
+		previousTime = currentTime
 
 		directionalGuard = directional
 		actionGuard = action

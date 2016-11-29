@@ -39,7 +39,7 @@ class SelectionScene : Scene {
 
 	func addItems (forQuestion question : Dictionary<String,AnyObject>) {
 
-		items.forEach({ $0.removeAllChildren() })
+		items.forEach { $0.removeAllChildren() }
 
 		let atlasName = question["atlas"] as! String
 		let imageNames = question["images"] as! Array<String>
@@ -54,12 +54,9 @@ class SelectionScene : Scene {
 			let item = SKSpriteNode(texture: texture, color: NSColor.clear, size: size)
 
 			switch index {
-			case 0:
-				leftNode.addChild(item)
-			case 1:
-				centerNode.addChild(item)
-			case 2:
-				rightNode.addChild(item)
+			case 0: leftNode.addChild(item)
+			case 1: centerNode.addChild(item)
+			case 2: rightNode.addChild(item)
 			default: break
 			}
 		}
@@ -101,8 +98,8 @@ class SelectionScene : Scene {
 
 	func changeSelection (from before : SelectionState, to after : SelectionState) {
 
-		let upscale = SKAction.scale(by: 2, duration: 0.5)
-		let downscale = SKAction.scale(by: 0.5, duration: 0.5)
+		let upscale = SKAction.scale(to: 2, duration: 0.5)
+		let downscale = SKAction.scale(to: 1, duration: 0.5)
 
 		if before != .none { items[before.rawValue].run(downscale) }
 
@@ -126,6 +123,8 @@ class SelectionScene : Scene {
 		}
 
 		if action.contains(.primary) && !actionGuard.contains(.primary) {
+
+			actionGuard.insert(.primary)
 
 			transitionToNextSelection()
 		}
@@ -160,9 +159,9 @@ class SelectionScene : Scene {
 			sceneNode = selectionSceneNode
 		}
 
-		sceneNode.actionGuard = actionGuard
-
 		sceneNode.scaleMode = .aspectFill
+
+		sceneNode.actionGuard = actionGuard
 
 		view?.presentScene(sceneNode, transition: transition)
 	}

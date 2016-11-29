@@ -39,7 +39,7 @@ class MovementComponent : GKComponent {
 		guard let angle = movementAngle else { return }
 
 		let rotate = SKAction.rotate(toAngle: angle.radians, duration: 0.2, shortestUnitArc: rand)
-		let displacement = CGVector(dx: speed * time * sin(angle.radians), dy: speed * time * -cos(angle.radians))
+		let displacement = CGVector(dx: speed * time * -sin(angle.radians), dy: speed * time * cos(angle.radians))
 		let move = SKAction.move(by: displacement, duration: 0.2)
 		let compound = SKAction.sequence([rotate, move])
 

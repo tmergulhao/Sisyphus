@@ -10,7 +10,7 @@ import SpriteKit
 
 extension Scene {
 
-	var controls : SKNode! { return childNode(withName: "Controls")?.children[0] }
+	var controls : SKNode! { return camera.childNode(withName: "Controls")?.children[0] }
 
 	var leftArrow : SKSpriteNode! {		return controls.childNode(withName: "Left arrow") as? SKSpriteNode }
 	var upArrow : SKSpriteNode! {		return controls.childNode(withName: "Up arrow") as? SKSpriteNode }
