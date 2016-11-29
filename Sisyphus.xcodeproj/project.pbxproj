@@ -28,6 +28,10 @@
 		79696E341DDCF2DD000A739A /* RenderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79696E331DDCF2DD000A739A /* RenderComponent.swift */; };
 		79696E361DDCF322000A739A /* MiteEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79696E351DDCF322000A739A /* MiteEntity.swift */; };
 		796971FA1DD3529E008375E4 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796971F91DD3529E008375E4 /* Keys.swift */; };
+		798B7ED11DEE20AF00D11ADC /* Fly buzz.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 798B7ED01DEE20AF00D11ADC /* Fly buzz.mp3 */; };
+		798B7ED41DEE23E600D11ADC /* Ambience.wav in Resources */ = {isa = PBXBuildFile; fileRef = 798B7ED31DEE23E600D11ADC /* Ambience.wav */; };
+		798B7ED71DEE284100D11ADC /* Background buzz.wav in Resources */ = {isa = PBXBuildFile; fileRef = 798B7ED51DEE284100D11ADC /* Background buzz.wav */; };
+		798B7ED81DEE284100D11ADC /* Suffering.wav in Resources */ = {isa = PBXBuildFile; fileRef = 798B7ED61DEE284100D11ADC /* Suffering.wav */; };
 		799DEED71DD6BE0A00FD77EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 799DEED61DD6BE0A00FD77EA /* Assets.xcassets */; };
 		799DEEDB1DD749E800FD77EA /* SelectionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799DEEDA1DD749E800FD77EA /* SelectionScene.swift */; };
 		799DEEDD1DD74ABC00FD77EA /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799DEEDC1DD74ABC00FD77EA /* GameScene.swift */; };
@@ -65,6 +69,10 @@
 		79696E331DDCF2DD000A739A /* RenderComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderComponent.swift; sourceTree = "<group>"; };
 		79696E351DDCF322000A739A /* MiteEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiteEntity.swift; sourceTree = "<group>"; };
 		796971F91DD3529E008375E4 /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		798B7ED01DEE20AF00D11ADC /* Fly buzz.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Fly buzz.mp3"; sourceTree = "<group>"; };
+		798B7ED31DEE23E600D11ADC /* Ambience.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Ambience.wav; sourceTree = "<group>"; };
+		798B7ED51DEE284100D11ADC /* Background buzz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Background buzz.wav"; sourceTree = "<group>"; };
+		798B7ED61DEE284100D11ADC /* Suffering.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Suffering.wav; sourceTree = "<group>"; };
 		799DEED61DD6BE0A00FD77EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		799DEEDA1DD749E800FD77EA /* SelectionScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionScene.swift; sourceTree = "<group>"; };
 		799DEEDC1DD74ABC00FD77EA /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -106,11 +114,11 @@
 				793C3DC11DC4095100351D34 /* Sisyphus */,
 				79F92C051DED7FB6007587FC /* Scenes */,
 				79F92C061DED7FC0007587FC /* Scene classes */,
-				79F92C071DED7FD4007587FC /* Scene components */,
 				791733331DDD0DDB006E6CB0 /* Entities */,
 				79696E321DDCED17000A739A /* Components */,
 				79D5149C1DDA0A060078B04D /* States */,
 				79F92C081DED7FED007587FC /* Supporting files */,
+				798B7ED21DEE20B200D11ADC /* Sounds */,
 				793C3DC01DC4095100351D34 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -144,6 +152,18 @@
 			path = Sisyphus;
 			sourceTree = "<group>";
 		};
+		798B7ED21DEE20B200D11ADC /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				798B7ED51DEE284100D11ADC /* Background buzz.wav */,
+				798B7ED61DEE284100D11ADC /* Suffering.wav */,
+				798B7ED31DEE23E600D11ADC /* Ambience.wav */,
+				798B7ED01DEE20AF00D11ADC /* Fly buzz.mp3 */,
+			);
+			name = Sounds;
+			path = Sisyphus;
+			sourceTree = "<group>";
+		};
 		79D5149C1DDA0A060078B04D /* States */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +185,7 @@
 				79122A4F1DEE054500DD2E19 /* Toxic gas.sks */,
 				7939A6DA1DEDDBCC0012C396 /* Kitchen floor.sks */,
 				793C3DC61DC4095100351D34 /* Actions.sks */,
+				79C423791DED3C5000CFA1D8 /* On screen controls.sks */,
 			);
 			name = Scenes;
 			path = Sisyphus;
@@ -181,15 +202,6 @@
 				799DEEDC1DD74ABC00FD77EA /* GameScene.swift */,
 			);
 			name = "Scene classes";
-			path = Sisyphus;
-			sourceTree = "<group>";
-		};
-		79F92C071DED7FD4007587FC /* Scene components */ = {
-			isa = PBXGroup;
-			children = (
-				79C423791DED3C5000CFA1D8 /* On screen controls.sks */,
-			);
-			name = "Scene components";
 			path = Sisyphus;
 			sourceTree = "<group>";
 		};
@@ -269,6 +281,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				79C4237A1DED3C5000CFA1D8 /* On screen controls.sks in Resources */,
+				798B7ED71DEE284100D11ADC /* Background buzz.wav in Resources */,
+				798B7ED81DEE284100D11ADC /* Suffering.wav in Resources */,
 				793C3DC51DC4095100351D34 /* Title.sks in Resources */,
 				79C423781DED3BDD00CFA1D8 /* Game.sks in Resources */,
 				793C3DD81DC4099300351D34 /* Computer Pixel-7.ttf in Resources */,
@@ -276,8 +290,10 @@
 				792650DE1DD7542A006C2F9A /* SelectionItems.plist in Resources */,
 				793C3DC71DC4095100351D34 /* Actions.sks in Resources */,
 				79C423761DED332700CFA1D8 /* Selection.sks in Resources */,
+				798B7ED41DEE23E600D11ADC /* Ambience.wav in Resources */,
 				793C3DD01DC4095100351D34 /* Main.storyboard in Resources */,
 				7968D1B61DEE0A1700449A0C /* Fire.sks in Resources */,
+				798B7ED11DEE20AF00D11ADC /* Fly buzz.mp3 in Resources */,
 				7939A6DB1DEDDBCC0012C396 /* Kitchen floor.sks in Resources */,
 				799DEED71DD6BE0A00FD77EA /* Assets.xcassets in Resources */,
 			);

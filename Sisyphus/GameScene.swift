@@ -8,12 +8,23 @@
 
 import SpriteKit
 import GameplayKit
+import AVFoundation
 
 class GameScene : Scene {
 
 	var player : GKEntity!
 
+	var soundURL = URL(fileURLWithPath: Bundle.main.path(forResource: "Background buzz", ofType: "wav")!)
+	var audioPlayer = AVAudioPlayer()
+
 	override func sceneDidLoad() {
+
+		audioPlayer = try! AVAudioPlayer(contentsOf: soundURL)
+		audioPlayer.prepareToPlay()
+
+		audioPlayer.volume = 0.3
+
+		audioPlayer.play()
 
 		onScreenControls(directional: [.up, .down, .left, .right], action: [.primary])
 

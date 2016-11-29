@@ -9,14 +9,23 @@
 import Cocoa
 import SpriteKit
 import GameplayKit
+import AVFoundation
 
 class ViewController: NSViewController {
+
+	var soundURL = URL(fileURLWithPath: Bundle.main.path(forResource: "Ambience", ofType: "wav")!)
+	var audioPlayer = AVAudioPlayer()
 
     @IBOutlet var sceneView : SKView!
     
     override func viewDidLoad() {
 
 		super.viewDidLoad()
+
+		audioPlayer = try! AVAudioPlayer(contentsOf: soundURL)
+		audioPlayer.prepareToPlay()
+
+		audioPlayer.play()
 
 		view.layer?.backgroundColor = .white
 

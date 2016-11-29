@@ -7,6 +7,7 @@
 //
 
 import GameplayKit
+import AVFoundation
 
 class FlyingState : GKState {
 
@@ -17,7 +18,13 @@ class FlyingState : GKState {
 	var movement : MovementComponent?
 	var render : RenderComponent?
 
+	var soundURL = URL(fileURLWithPath: Bundle.main.path(forResource: "Fly buzz", ofType: "mp3")!)
+	var audioPlayer = AVAudioPlayer()
+
 	init(_ action : ActionComponent) {
+
+		audioPlayer = try! AVAudioPlayer(contentsOf: soundURL)
+		audioPlayer.prepareToPlay()
 
 		self.action = action
 
@@ -36,13 +43,18 @@ class FlyingState : GKState {
 
 		movement?.speed = 180
 
+		audioPlayer.play()
+
 		let upscale = SKAction.scale(to: 1.5, duration: 0.5)
-		
-		render?.spriteNode.run(action.animation[self]!)
-		render?.spriteNode.run(upscale)
+
+		let compount = SKAction.sequence([action.animation[self]!, upscale])
+
+		render?.spriteNode.run(compount)
 	}
 
 	override func willExit(to nextState: GKState) {
+
+		audioPlayer.stop()
 
 		let downscale = SKAction.scale(to: 1, duration: 0.5)
 
